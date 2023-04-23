@@ -13,32 +13,38 @@ namespace StokApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            PersonService personServiceInstance = PersonService.Instance;
-            List<Person> persons = personServiceInstance.GetPersonsFromDb();
-
             string nickname = textBox1.Text;
             string password = textBox2.Text;
             bool nameControl = false;
-            foreach (var person in persons)
+            try
             {
-                if (person.Nickname == nickname)
+                PersonService personServiceInstance = PersonService.Instance;
+                List<Person> persons = personServiceInstance.GetPersonsFromDb();
+
+                foreach (var person in persons)
                 {
-                    nameControl = true;
-                    if (person.Password == password)
+                    if (person.Nickname == nickname)
                     {
-                        MessageBox.Show("Transaction Successful!!");
-                        break;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Wrong Password!!");
-                        break;
+                        nameControl = true;
+                        if (person.Password == password)
+                        {
+                            MessageBox.Show("Transaction Successful!!");
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong Password!!");
+                            break;
+                        }
                     }
                 }
-            }
-            if (!nameControl)
+                if (!nameControl)
+                {
+                    MessageBox.Show("Name Not Found!!");
+                }
+            } catch (Exception ex)
             {
-                MessageBox.Show("Name Not Found!!");
+                MessageBox.Show(ex.ToString());
             }
         }
     }

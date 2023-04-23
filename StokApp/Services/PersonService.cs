@@ -21,34 +21,48 @@ namespace StokApp.Services
         static List<Person> PersonList = new List<Person>();
 
         string connectionString = "Data Source=JUMBO;Initial Catalog=oto_stok;Integrated Security=True";
-        SqlConnection connection;
-        SqlCommand command;
+        SqlConnection? connection;
+        SqlCommand? command;
         
         PersonService()
         {
-            connection = new SqlConnection(connectionString);
-            string query = "select * from persons";
-            command = new SqlCommand(query, connection);
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                string query = "select * from persons";
+                command = new SqlCommand(query, connection);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         public List<Person> GetPersonsFromDb()
         {
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
             List<Person> list = new List<Person>();
-            while (reader.Read())
+            try
             {
-                Person person = new Person();
-                Dictionary<String, dynamic> map = new Dictionary<String, dynamic>();
-                for (int i = 0; i < reader.FieldCount; i++)
+                connection!.Open();
+                SqlDataReader reader = command!.ExecuteReader();
+                while (reader.Read())
                 {
-                    map.Add(reader.GetName(i), reader.GetValue(i));
+                    Person person = new Person();
+                    Dictionary<String, dynamic> map = new Dictionary<String, dynamic>();
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        map.Add(reader.GetName(i), reader.GetValue(i));
+                    }
+                    person.FromMap(map);
+                    list.Add(person);
                 }
-                person.FromMap(map);
-                list.Add(person);
+                reader.Close();
+                connection.Close();
             }
-            reader.Close();
-            connection.Close();
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
             return list;
         }
 
