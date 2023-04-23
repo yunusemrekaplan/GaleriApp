@@ -15,13 +15,13 @@ namespace StokApp
         {
             PersonService personServiceInstance = PersonService.Instance;
             List<Person> persons = personServiceInstance.GetPersonsFromDb();
-            
+
             string nickname = textBox1.Text;
             string password = textBox2.Text;
             bool nameControl = false;
-            foreach(var person in  persons)
+            foreach (var person in persons)
             {
-                if(person.Nickname == nickname)
+                if (person.Nickname == nickname)
                 {
                     nameControl = true;
                     if (person.Password == password)
@@ -36,7 +36,7 @@ namespace StokApp
                     }
                 }
             }
-            if(!nameControl)
+            if (!nameControl)
             {
                 MessageBox.Show("Name Not Found!!");
             }

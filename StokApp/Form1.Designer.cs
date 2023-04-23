@@ -28,60 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
+            groupBox1 = new GroupBox();
             button1 = new Button();
             textBox2 = new TextBox();
             label2 = new Label();
             textBox1 = new TextBox();
             label1 = new Label();
+            groupBox1.SuspendLayout();
             SuspendLayout();
+            // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(label1);
+            groupBox1.Location = new Point(40, 30);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(500, 300);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.None;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(322, 225);
+            button1.Location = new Point(240, 163);
+            button1.MaximumSize = new Size(70, 35);
             button1.Name = "button1";
-            button1.Size = new Size(75, 32);
-            button1.TabIndex = 10;
+            button1.Size = new Size(70, 35);
+            button1.TabIndex = 15;
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(322, 187);
+            textBox2.Anchor = AnchorStyles.None;
+            textBox2.Location = new Point(240, 125);
             textBox2.MaxLength = 20;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 9;
+            textBox2.Size = new Size(95, 23);
+            textBox2.TabIndex = 14;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
+            label2.Anchor = AnchorStyles.None;
             label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(219, 182);
+            label2.Location = new Point(137, 120);
             label2.Name = "label2";
             label2.Size = new Size(97, 28);
-            label2.TabIndex = 8;
+            label2.TabIndex = 13;
             label2.Text = "Password:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(322, 149);
+            textBox1.Anchor = AnchorStyles.None;
+            textBox1.Location = new Point(240, 87);
             textBox1.MaxLength = 20;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 7;
+            textBox1.Size = new Size(95, 23);
+            textBox1.TabIndex = 12;
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
+            label1.Anchor = AnchorStyles.None;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(248, 145);
+            label1.Location = new Point(166, 83);
             label1.Name = "label1";
             label1.Size = new Size(68, 28);
-            label1.TabIndex = 6;
+            label1.TabIndex = 11;
             label1.Text = "Name:";
             // 
             // Form1
@@ -89,16 +106,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(641, 403);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(label2);
-            Controls.Add(textBox1);
-            Controls.Add(label1);
+            ClientSize = new Size(584, 361);
+            Controls.Add(groupBox1);
             Name = "Form1";
             Text = "Form1";
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -108,5 +122,6 @@
         private Label label2;
         private TextBox textBox1;
         private Label label1;
+        private GroupBox groupBox1;
     }
 }
