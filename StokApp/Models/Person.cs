@@ -10,20 +10,30 @@ namespace StokApp.Models
     public class Person
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Nickname { get; set; }
-        public string Password { get; set; }
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
+        public string? Nickname { get; set; }
+        public string? Password { get; set; }
         
-        public Dictionary<dynamic, dynamic> ToMap()
+        public Dictionary<String, dynamic> ToMap()
         {
-            Dictionary<dynamic, dynamic> Map = new Dictionary<dynamic, dynamic>();
-            Map.Add("id", Id);
-            Map.Add("name", Name);
-            Map.Add("surname", Surname);
-            Map.Add("Password", Password);
+            Dictionary<String, dynamic> map = new Dictionary<String, dynamic>();
+            map.Add("id", Id);
+            map.Add("name", Name!);
+            map.Add("surname", Surname!);
+            map.Add("nickname", Nickname!);
+            map.Add("Password", Password!);
 
-            return Map;
+            return map;
+        }
+
+        public void FromMap(Dictionary<String, dynamic> map)
+        {
+            Id = map["id"];
+            Name = map["name"];
+            Surname = map["surname"];
+            Nickname = map["nickname"];
+            Password = map["password"];
         }
     }
 }

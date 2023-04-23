@@ -28,67 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            textBox1 = new TextBox();
+            button1 = new Button();
             textBox2 = new TextBox();
             label2 = new Label();
-            button1 = new Button();
+            textBox1 = new TextBox();
+            label1 = new Label();
             SuspendLayout();
             // 
-            // label1
+            // button1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(128, 87);
-            label1.Name = "label1";
-            label1.Size = new Size(68, 28);
-            label1.TabIndex = 1;
-            label1.Text = "Name:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(202, 91);
-            textBox1.MaxLength = 20;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 2;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(322, 225);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 32);
+            button1.TabIndex = 10;
+            button1.Text = "Login";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(202, 129);
+            textBox2.Location = new Point(322, 187);
             textBox2.MaxLength = 20;
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 4;
+            textBox2.TabIndex = 9;
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(99, 124);
+            label2.Location = new Point(219, 182);
             label2.Name = "label2";
             label2.Size = new Size(97, 28);
-            label2.TabIndex = 3;
+            label2.TabIndex = 8;
             label2.Text = "Password:";
             // 
-            // button1
+            // textBox1
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(202, 167);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 32);
-            button1.TabIndex = 5;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = true;
+            textBox1.Location = new Point(322, 149);
+            textBox1.MaxLength = 20;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(248, 145);
+            label1.Name = "label1";
+            label1.Size = new Size(68, 28);
+            label1.TabIndex = 6;
+            label1.Text = "Name:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(678, 476);
+            ClientSize = new Size(641, 403);
             Controls.Add(button1);
             Controls.Add(textBox2);
             Controls.Add(label2);
@@ -102,10 +103,10 @@
 
         #endregion
 
-        private Label label1;
-        private TextBox textBox1;
+        private Button button1;
         private TextBox textBox2;
         private Label label2;
-        private Button button1;
+        private TextBox textBox1;
+        private Label label1;
     }
 }
