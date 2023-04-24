@@ -18,7 +18,7 @@ namespace StokApp.Services
         
         public static PersonService Instance { get { return _singleton; } }
 
-        static List<Person> PersonList = new List<Person>();
+        static List<Person>? Persons { get; set; }
 
         string connectionString = "Data Source=JUMBO;Initial Catalog=oto_stok;Integrated Security=True";
         SqlConnection? connection;
@@ -48,7 +48,7 @@ namespace StokApp.Services
                 while (reader.Read())
                 {
                     Person person = new Person();
-                    Dictionary<String, dynamic> map = new Dictionary<String, dynamic>();
+                    Dictionary<string, dynamic> map = new Dictionary<string, dynamic>();
                     for (int i = 0; i < reader.FieldCount; i++)
                     {
                         map.Add(reader.GetName(i), reader.GetValue(i));
@@ -58,17 +58,13 @@ namespace StokApp.Services
                 }
                 reader.Close();
                 connection.Close();
-            }
-            catch(Exception ex)
+                Persons = list;
+            } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
             return list;
         }
 
-        public List<Person> GetPersons()
-        {
-            return PersonList;
-        }
     }
 }

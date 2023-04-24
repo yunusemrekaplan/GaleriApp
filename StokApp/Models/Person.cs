@@ -15,9 +15,9 @@ namespace StokApp.Models
         public string? Nickname { get; set; }
         public string? Password { get; set; }
         
-        public Dictionary<String, dynamic> ToMap()
+        public Dictionary<string, dynamic> ToMap()
         {
-            Dictionary<String, dynamic> map = new Dictionary<String, dynamic>();
+            Dictionary<string, dynamic> map = new Dictionary<string, dynamic>();
             map.Add("id", Id);
             map.Add("name", Name!);
             map.Add("surname", Surname!);
@@ -27,7 +27,7 @@ namespace StokApp.Models
             return map;
         }
 
-        public void FromMap(Dictionary<String, dynamic> map)
+        public void FromMap(Dictionary<string, dynamic> map)
         {
             Id = map["id"];
             Name = map["name"];
