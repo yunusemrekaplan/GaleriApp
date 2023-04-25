@@ -25,30 +25,101 @@ namespace StokApp
 
             InitializeComponent();
 
-            Controls.Add(listView1);
+            //Controls.Add(listView2);
 
-            List<string[]> rows = new List<string[]>();
 
-            foreach (Car car in cars)
-            {
-                string[] row = { car.SerialNo.ToString(), car.Name!, car.LicensePlate! };
-                rows.Add(row);
-            }
-
-            ListViewBuild(rows);
+            ListViewBuildAllCars();
         }
 
-        public void ListViewBuild(List<string[]> rows)
+        public void ListViewBuildAllCars()
         {
-            listView1.Columns.Add("Seri No", 100, HorizontalAlignment.Left);
-            listView1.Columns.Add("İsim", 100, HorizontalAlignment.Left);
-            listView1.Columns.Add("Plaka", 100, HorizontalAlignment.Left);
+            List<string[]> rows = new List<string[]>();
+
+            foreach (Car car in cars!)
+            {
+                string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, car.IsRented.ToString() };
+                rows.Add(row);
+            }
+            listView2.Columns.Add("Seri No", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("İsim", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("Plaka", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("Durum", 100, HorizontalAlignment.Left);
 
             foreach (string[] row in rows)
             {
-                listView1.Items.Add(new ListViewItem(row));
+                listView2.Items.Add(new ListViewItem(row));
             }
         }
 
+        public void ListViewBuildRented()
+        {
+            List<string[]> rows = new List<string[]>();
+
+            foreach (Car car in cars!)
+            {
+                if (car.IsRented)
+                {
+                    string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, car.IsRented.ToString() };
+                    rows.Add(row);
+                }
+            }
+            listView2.Columns.Add("Seri No", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("İsim", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("Plaka", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("Durum", 100, HorizontalAlignment.Left);
+
+            foreach (string[] row in rows)
+            {
+                listView2.Items.Add(new ListViewItem(row));
+            }
+        }
+
+        public void ListViewBuildNotRented()
+        {
+            List<string[]> rows = new List<string[]>();
+
+            foreach (Car car in cars!)
+            {
+                if (!car.IsRented)
+                {
+                    string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, car.IsRented.ToString() };
+                    rows.Add(row);
+                }
+            }
+            listView2.Columns.Add("Seri No", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("İsim", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("Plaka", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("Durum", 100, HorizontalAlignment.Left);
+
+            foreach (string[] row in rows)
+            {
+                listView2.Items.Add(new ListViewItem(row));
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            listView2.Clear();
+            ListViewBuildAllCars();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listView2.Clear();
+            ListViewBuildRented();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            listView2.Clear();
+            ListViewBuildNotRented();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AddCarForm addCarForm = new AddCarForm();
+            this.Hide();
+            addCarForm.Show();
+        }
     }
 }

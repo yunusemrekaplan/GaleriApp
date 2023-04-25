@@ -9,17 +9,19 @@ namespace StokApp.Models
     public class Car
     {
         public int Id { get; set; }
-        public long SerialNo { get; set; }
+        public string? SerialNo { get; set; }
         public string? Name { get; set; }
         public string? LicensePlate { get; set; }
+        public bool IsRented { get; set; }
 
         public Dictionary<string, dynamic> ToMap()
         {
             Dictionary<string, dynamic> map = new Dictionary<string, dynamic>();
             map.Add("id", Id);
-            map.Add("serial_no", SerialNo);
+            map.Add("serial_no", SerialNo!);
             map.Add("name", Name!);
             map.Add("license_plate", LicensePlate!);
+            map.Add("isRented", IsRented);
 
             return map;
         }
@@ -30,6 +32,7 @@ namespace StokApp.Models
             SerialNo = map["serial_no"];
             Name = map["name"];
             LicensePlate = map["license_plate"];
+            IsRented = map["isRented"];
         }
     }
 }

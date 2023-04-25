@@ -1,6 +1,7 @@
 ﻿using StokApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -18,16 +19,13 @@ namespace StokApp.Services
 
         string connectionString = "Data Source=JUMBO;Initial Catalog=oto_stok;Integrated Security=True";
         SqlConnection? connection;
-        SqlCommand? command;
-
-        CarService() 
+        CarService()
         {
             try
             {
                 connection = new SqlConnection(connectionString);
-                string query = "select * from cars";
-                command = new SqlCommand(query, connection);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
@@ -35,7 +33,10 @@ namespace StokApp.Services
 
         public List<Car> GetCarsFromDb()
         {
+            string query = "select * from cars";
+            SqlCommand? command = new SqlCommand(query, connection);
             List<Car> list = new List<Car>();
+
             try
             {
                 connection!.Open();
@@ -44,7 +45,7 @@ namespace StokApp.Services
                 {
                     Car car = new Car();
                     Dictionary<string, dynamic> map = new Dictionary<string, dynamic>();
-                    for(int i=0; i<reader.FieldCount; i++)
+                    for (int i = 0; i < reader.FieldCount; i++)
                     {
                         map.Add(reader.GetName(i), reader.GetValue(i));
                     }
@@ -54,11 +55,40 @@ namespace StokApp.Services
                 reader.Close();
                 connection.Close();
                 Cars = list;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
             return list;
+        }
+
+        public void AddCar(Car car)
+        {
+            string serialNo = car.SerialNo!;
+            string name = car.Name!;
+            string licensePlate = car.LicensePlate!;
+            bool isRented = car.IsRented;
+
+            try
+            {
+                string query = "INSERT INTO cars (serial_no, name, license_plate, isRented) VALUES (@serialNo, @name, @licensePlate, @isRented)";
+
+                connection!.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@serialNo", serialNo);
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@licensePlate", licensePlate);
+                command.Parameters.Add("@isRented", SqlDbType.Bit).Value = isRented;
+
+                int rowsAffected = command.ExecuteNonQuery();
+                MessageBox.Show(rowsAffected.ToString());
+                connection!.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }
