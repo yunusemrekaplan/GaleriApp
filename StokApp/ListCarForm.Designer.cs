@@ -155,6 +155,7 @@
             listView2.TabIndex = 0;
             listView2.UseCompatibleStateImageBehavior = false;
             listView2.View = View.Details;
+            listView2.MouseDown += listView2_MouseDown;
             // 
             // ListCarForm
             // 

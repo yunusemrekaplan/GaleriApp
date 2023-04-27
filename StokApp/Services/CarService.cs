@@ -90,5 +90,7 @@ namespace StokApp.Services
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+
+        //public void DeleteCar()
     }
 }

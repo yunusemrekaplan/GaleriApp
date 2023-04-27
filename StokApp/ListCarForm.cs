@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace StokApp
 {
@@ -120,6 +121,29 @@ namespace StokApp
             AddCarForm addCarForm = new AddCarForm();
             this.Hide();
             addCarForm.Show();
+        }
+
+        private void listView2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                // Tıklanan öğeyi al
+                ListViewItem clickedItem = listView2.GetItemAt(e.X, e.Y)!;
+
+                if (clickedItem != null)
+                {
+                    foreach(Car car in cars!)
+                    {
+                        if(car.SerialNo == clickedItem.Text)
+                        {
+                            CarInfoForm carInfoForm = new CarInfoForm(car);
+                            this.Hide();
+                            carInfoForm.Show();
+                            break;
+                        }
+                    }
+                }
+            }
         }
     }
 }
