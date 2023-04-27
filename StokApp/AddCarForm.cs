@@ -21,25 +21,8 @@ namespace StokApp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < 1; i++)
+            if (ControlInputs())
             {
-                if (!SerialNoControl())
-                {
-                    break;
-                }
-                if (!NameControl())
-                {
-                    break;
-                }
-                if (!LicensePlateControl())
-                {
-                    break;
-                }
-                if (!RentCheckBoxControl())
-                {
-                    break;
-                }
-
                 CarService carService = CarService.Instance;
                 Car car = new Car();
 
@@ -56,6 +39,27 @@ namespace StokApp
             }
         }
 
+        private bool ControlInputs()
+        {
+            if (!SerialNoControl())
+            {
+                return false;
+            }
+            if (!NameControl())
+            {
+                return false;
+            }
+            if (!LicensePlateControl())
+            {
+                return false;
+            }
+            if (!RentCheckBoxControl())
+            {
+                return false;
+            }
+            return true;
+        }
+
         public bool SerialNoControl()
         {
             string serialNo = textBox1.Text;
@@ -65,34 +69,41 @@ namespace StokApp
             bool baseControl = true;
             try
             {
-                if (serialNo.Length > 5)
+                if (serialNo.Length == 0)
+                {
+                    MessageBox.Show("Aracın seri numarasını girin!");
+                    baseControl = false;
+                }
+                else if (serialNo.Length > 5)
                 {
                     MessageBox.Show("Seri numarasının boyutu 5'ten büyük olamaz");
                     baseControl = false;
                 }
-                if (serialNo.Length < 5)
+                else if (serialNo.Length < 5)
                 {
                     MessageBox.Show("Seri numarasının boyutu 5'ten küçük olamaz");
                     baseControl = false;
                 }
-
-                for (int i = 0; i < serialNo.Length; i++)
+                else
                 {
-                    foreach (char s in nums)
+                    for (int i = 0; i < serialNo.Length; i++)
                     {
-                        if (s == serialNo[i])
+                        foreach (char s in nums)
                         {
-                            control = true;
+                            if (s == serialNo[i])
+                            {
+                                control = true;
+                                break;
+                            }
+                        }
+                        if (!control)
+                        {
+                            MessageBox.Show("Seri numarasında harf bulunamaz");
+                            baseControl = false;
                             break;
                         }
+                        control = false;
                     }
-                    if (!control)
-                    {
-                        MessageBox.Show("Seri numarasında harf bulunamaz");
-                        baseControl = false;
-                        break;
-                    }
-                    control = false;
                 }
             }
             catch (Exception ex)
@@ -104,6 +115,11 @@ namespace StokApp
 
         public bool NameControl()
         {
+            if (textBox2.Text.Length == 0)
+            {
+                MessageBox.Show("Aracın modelini girin!");
+                return false;
+            }
             if (textBox2.Text == "")
             {
                 MessageBox.Show("Aracın ismini giriniz!");
@@ -114,6 +130,11 @@ namespace StokApp
 
         public bool LicensePlateControl()
         {
+            if (textBox3.Text.Length == 0)
+            {
+                MessageBox.Show("Aracın plakasını girin!");
+                return false;
+            }
             if (textBox3.Text == "")
             {
                 MessageBox.Show("Lütfen araç plakasını giriniz!");
@@ -121,7 +142,7 @@ namespace StokApp
             }
             return true;
         }
-        
+
         public bool RentCheckBoxControl()
         {
             if (trueCheckBox.Checked == false && falseCheckBox.Checked == false)
@@ -146,6 +167,13 @@ namespace StokApp
             {
                 trueCheckBox.Checked = false;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ListCarForm listCarForm = new ListCarForm();
+            this.Hide();
+            listCarForm.Show();
         }
     }
 }

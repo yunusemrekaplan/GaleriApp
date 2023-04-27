@@ -38,7 +38,7 @@ namespace StokApp
 
             foreach (Car car in cars!)
             {
-                string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, car.IsRented.ToString() };
+                string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, (car.IsRented == true ? "Müşteride" : "Stokta") };
                 rows.Add(row);
             }
             listView2.Columns.Add("Seri No", 100, HorizontalAlignment.Left);
@@ -60,7 +60,7 @@ namespace StokApp
             {
                 if (car.IsRented)
                 {
-                    string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, car.IsRented.ToString() };
+                    string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, "Müşteride" };
                     rows.Add(row);
                 }
             }
@@ -83,7 +83,7 @@ namespace StokApp
             {
                 if (!car.IsRented)
                 {
-                    string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, car.IsRented.ToString() };
+                    string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, "Stokta" };
                     rows.Add(row);
                 }
             }
@@ -132,9 +132,9 @@ namespace StokApp
 
                 if (clickedItem != null)
                 {
-                    foreach(Car car in cars!)
+                    foreach (Car car in cars!)
                     {
-                        if(car.SerialNo == clickedItem.Text)
+                        if (car.SerialNo == clickedItem.Text)
                         {
                             CarInfoForm carInfoForm = new CarInfoForm(car);
                             this.Hide();

@@ -91,6 +91,54 @@ namespace StokApp.Services
             }
         }
 
-        //public void DeleteCar()
+        public void UpdateCar(Car car)
+        {
+            int id = car.Id;
+            string serialNo = car.SerialNo!;
+            string name = car.Name!;
+            string licensePlate = car.LicensePlate!;
+            bool isRented = car.IsRented;
+
+            try
+            {
+                string query = "UPDATE cars SET serial_no = @serialNo, name = @name, license_plate = @licensePLate, isRented = @isRented WHERE id = @id";
+                connection?.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@serialNo", serialNo);
+                command.Parameters.AddWithValue("@name", name);
+                command.Parameters.AddWithValue("@licensePlate", licensePlate);
+                command.Parameters.Add("@isRented", SqlDbType.Bit).Value = isRented;
+                command.Parameters.AddWithValue("@id", id);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                MessageBox.Show(rowsAffected.ToString());
+                connection!.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        public void DeleteCar(Car car)
+        {
+            int id = car.Id;
+            try
+            {
+                string query = "DELETE FROM cars WHERE id = @id";
+
+                connection!.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@id", id);
+
+                int rowsAffected = command.ExecuteNonQuery();
+                MessageBox.Show(rowsAffected.ToString());
+                connection!.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
     }
 }

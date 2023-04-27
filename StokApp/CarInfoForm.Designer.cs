@@ -29,26 +29,32 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            textBox3 = new TextBox();
+            falseCheckBox = new CheckBox();
+            trueCheckBox = new CheckBox();
+            label4 = new Label();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             label6 = new Label();
-            label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            button1 = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(falseCheckBox);
+            groupBox1.Controls.Add(trueCheckBox);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(label6);
-            groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
@@ -60,12 +66,69 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
-            // textBox3
+            // falseCheckBox
             // 
-            textBox3.Location = new Point(188, 200);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 7;
+            falseCheckBox.AutoSize = true;
+            falseCheckBox.Location = new Point(234, 202);
+            falseCheckBox.Name = "falseCheckBox";
+            falseCheckBox.Size = new Size(54, 19);
+            falseCheckBox.TabIndex = 15;
+            falseCheckBox.Text = "Hayır";
+            falseCheckBox.UseVisualStyleBackColor = true;
+            falseCheckBox.CheckedChanged += falseCheckBox_CheckedChanged;
+            // 
+            // trueCheckBox
+            // 
+            trueCheckBox.AutoSize = true;
+            trueCheckBox.Location = new Point(188, 202);
+            trueCheckBox.Name = "trueCheckBox";
+            trueCheckBox.Size = new Size(48, 19);
+            trueCheckBox.TabIndex = 14;
+            trueCheckBox.Text = "Evet";
+            trueCheckBox.UseVisualStyleBackColor = true;
+            trueCheckBox.CheckedChanged += trueCheckBox_CheckedChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(75, 200);
+            label4.Name = "label4";
+            label4.Size = new Size(107, 21);
+            label4.TabIndex = 13;
+            label4.Text = "Kiralandı Mı:";
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Location = new Point(12, 408);
+            button3.Name = "button3";
+            button3.Size = new Size(89, 30);
+            button3.TabIndex = 12;
+            button3.Text = "Geri";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(294, 238);
+            button2.Name = "button2";
+            button2.Size = new Size(100, 30);
+            button2.TabIndex = 11;
+            button2.Text = "Sil";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(188, 238);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 30);
+            button1.TabIndex = 8;
+            button1.Text = "Güncelle";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // textBox2
             // 
@@ -90,16 +153,6 @@
             label6.Size = new Size(55, 21);
             label6.TabIndex = 4;
             label6.Text = "11111";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(111, 200);
-            label4.Name = "label4";
-            label4.Size = new Size(71, 21);
-            label4.TabIndex = 3;
-            label4.Text = "Durum: ";
             // 
             // label3
             // 
@@ -131,15 +184,6 @@
             label1.TabIndex = 0;
             label1.Text = "Seri No: ";
             // 
-            // button1
-            // 
-            button1.Location = new Point(188, 238);
-            button1.Name = "button1";
-            button1.Size = new Size(78, 32);
-            button1.TabIndex = 8;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // CarInfoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -157,14 +201,17 @@
 
         private GroupBox groupBox1;
         private Label label5;
-        private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
-        private TextBox textBox3;
         private TextBox textBox2;
         private TextBox textBox1;
         private Label label6;
         private Button button1;
+        private Button button3;
+        private Button button2;
+        private CheckBox falseCheckBox;
+        private CheckBox trueCheckBox;
+        private Label label4;
     }
 }

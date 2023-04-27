@@ -30,8 +30,6 @@
         {
             groupBox1 = new GroupBox();
             groupBox3 = new GroupBox();
-            button6 = new Button();
-            button5 = new Button();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
@@ -57,8 +55,6 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(button6);
-            groupBox3.Controls.Add(button5);
             groupBox3.Controls.Add(button4);
             groupBox3.Controls.Add(button3);
             groupBox3.Controls.Add(button2);
@@ -70,26 +66,6 @@
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "groupBox3";
-            // 
-            // button6
-            // 
-            button6.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button6.Location = new Point(9, 272);
-            button6.Name = "button6";
-            button6.Size = new Size(190, 44);
-            button6.TabIndex = 5;
-            button6.Text = "Araç Güncelle";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.Location = new Point(9, 222);
-            button5.Name = "button5";
-            button5.Size = new Size(190, 44);
-            button5.TabIndex = 4;
-            button5.Text = "Araç Sil";
-            button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -180,8 +156,6 @@
         private Button button3;
         private Button button2;
         private Button button1;
-        private Button button6;
-        private Button button5;
         private Button button4;
     }
 }

@@ -40,6 +40,7 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(falseCheckBox);
             groupBox2.Controls.Add(trueCheckBox);
             groupBox2.Controls.Add(button1);
@@ -99,7 +101,7 @@
             // 
             // button1
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Location = new Point(116, 191);
             button1.Name = "button1";
             button1.Size = new Size(100, 31);
@@ -169,6 +171,17 @@
             label1.TabIndex = 0;
             label1.Text = "Seri No:";
             // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(3, 389);
+            button2.Name = "button2";
+            button2.Size = new Size(85, 30);
+            button2.TabIndex = 12;
+            button2.Text = "Geri";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // AddCarForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -197,5 +210,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private Button button2;
     }
 }
