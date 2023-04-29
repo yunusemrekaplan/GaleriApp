@@ -61,13 +61,14 @@
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(800, 450);
+            groupBox1.Size = new Size(645, 429);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
             // falseCheckBox
             // 
+            falseCheckBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             falseCheckBox.AutoSize = true;
             falseCheckBox.Location = new Point(234, 202);
             falseCheckBox.Name = "falseCheckBox";
@@ -79,6 +80,7 @@
             // 
             // trueCheckBox
             // 
+            trueCheckBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             trueCheckBox.AutoSize = true;
             trueCheckBox.Location = new Point(188, 202);
             trueCheckBox.Name = "trueCheckBox";
@@ -90,6 +92,7 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(75, 200);
@@ -100,13 +103,15 @@
             // 
             // button3
             // 
+            button3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(12, 408);
+            button3.Location = new Point(6, 397);
             button3.Name = "button3";
-            button3.Size = new Size(89, 30);
+            button3.Size = new Size(120, 28);
             button3.TabIndex = 12;
             button3.Text = "Geri";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -132,6 +137,7 @@
             // 
             // textBox2
             // 
+            textBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox2.Location = new Point(188, 170);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(100, 23);
@@ -139,6 +145,7 @@
             // 
             // textBox1
             // 
+            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             textBox1.Location = new Point(188, 140);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
@@ -146,6 +153,7 @@
             // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(188, 110);
@@ -156,6 +164,7 @@
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(122, 170);
@@ -166,6 +175,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.Location = new Point(115, 140);
@@ -176,6 +186,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(108, 110);
@@ -188,7 +199,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(645, 429);
             Controls.Add(groupBox1);
             Name = "CarInfoForm";
             Text = "CarInfoForm";

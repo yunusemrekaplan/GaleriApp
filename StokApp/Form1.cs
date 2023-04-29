@@ -28,7 +28,9 @@ namespace StokApp
                         nameControl = true;
                         if (person.Password == password)
                         {
-                            MessageBox.Show("Transaction Successful!!");
+                            ListCarForm listCarForm = new ListCarForm();
+                            this.Hide();
+                            listCarForm.ShowDialog();
                             break;
                         }
                         else
@@ -42,7 +44,8 @@ namespace StokApp
                 {
                     MessageBox.Show("Name Not Found!!");
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }

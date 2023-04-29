@@ -46,8 +46,10 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(584, 361);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(667, 481);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             // 
@@ -55,10 +57,11 @@
             // 
             button1.Anchor = AnchorStyles.None;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(274, 188);
-            button1.MaximumSize = new Size(70, 35);
+            button1.Location = new Point(313, 251);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.MaximumSize = new Size(80, 47);
             button1.Name = "button1";
-            button1.Size = new Size(70, 35);
+            button1.Size = new Size(80, 47);
             button1.TabIndex = 15;
             button1.Text = "Login";
             button1.UseVisualStyleBackColor = true;
@@ -67,48 +70,51 @@
             // textBox2
             // 
             textBox2.Anchor = AnchorStyles.None;
-            textBox2.Location = new Point(274, 150);
+            textBox2.Location = new Point(313, 200);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.MaxLength = 20;
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(95, 23);
+            textBox2.Size = new Size(108, 27);
             textBox2.TabIndex = 14;
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.None;
             label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(171, 145);
+            label2.Location = new Point(173, 193);
             label2.Name = "label2";
-            label2.Size = new Size(97, 28);
+            label2.Size = new Size(133, 37);
             label2.TabIndex = 13;
             label2.Text = "Password:";
             // 
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.None;
-            textBox1.Location = new Point(274, 112);
+            textBox1.Location = new Point(313, 149);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.MaxLength = 20;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(95, 23);
+            textBox1.Size = new Size(108, 27);
             textBox1.TabIndex = 12;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.None;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(200, 108);
+            label1.Location = new Point(211, 140);
             label1.Name = "label1";
-            label1.Size = new Size(68, 28);
+            label1.Size = new Size(95, 37);
             label1.TabIndex = 11;
             label1.Text = "Name:";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(584, 361);
+            ClientSize = new Size(667, 481);
             Controls.Add(groupBox1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             groupBox1.ResumeLayout(false);
