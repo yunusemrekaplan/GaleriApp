@@ -21,60 +21,42 @@ namespace StokApp
             this.car = car;
             InitializeComponent();
 
-            label6.Text = car.SerialNo;
-            textBox1.Text = car.Name;
-            textBox2.Text = car.LicensePlate;
+            txtSeriNo.Text = car.SerialNo.ToString();
+            textBoxBrand.Text = car.Brand!.ToString();
+            textBoxModel.Text = car.Model!.ToString();
+            textBoxYear.Text = car.YearProd.ToString();
+            textBoxGear.Text = car.Gear!.ToString();
+            textBoxPlate.Text = car.Plate!.ToString();
+
             if (car.IsRented)
             {
-                trueCheckBox.Checked = true;
+                checkBoxYes.Checked = true;
             }
             else
             {
-                falseCheckBox.Checked = true;
-            }
-        }
-
-        private void trueCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (trueCheckBox.Checked == true)
-            {
-                falseCheckBox.Checked = false;
-            }
-        }
-
-        private void falseCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (falseCheckBox.Checked == true)
-            {
-                trueCheckBox.Checked = false;
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (ControlInfos())
-            {
-                CarService carService = CarService.Instance;
-
-                car!.Name = textBox1.Text;
-                car!.LicensePlate = textBox2.Text;
-                car!.IsRented = trueCheckBox.Checked;
-
-                carService.UpdateCar(car);
-
-                ListCarForm listCarForm = new ListCarForm();
-                this.Hide();
-                listCarForm.Show();
+                checkBoxNo.Checked = true;
             }
         }
 
         private bool ControlInfos()
         {
-            if (!NameControl())
+            if (!BrandControl())
             {
                 return false;
             }
-            if (!LicensePlateControl())
+            if (!ModelControl())
+            {
+                return false;
+            }
+            if (!YearControl())
+            {
+                return false;
+            }
+            if (!GearControl())
+            {
+                return false;
+            }
+            if (!PlateControl())
             {
                 return false;
             }
@@ -85,21 +67,51 @@ namespace StokApp
             return true;
         }
 
-        public bool NameControl()
+        public bool BrandControl()
         {
-            if (textBox1.Text == "")
+            if (textBoxBrand.Text == "")
             {
-                MessageBox.Show("Aracın ismini giriniz!");
+                MessageBox.Show("Aracın markasını giriniz!");
                 return false;
             }
             return true;
         }
 
-        public bool LicensePlateControl()
+        public bool ModelControl()
         {
-            if (textBox2.Text == "")
+            if (textBoxModel.Text == "")
             {
-                MessageBox.Show("Lütfen araç plakasını giriniz!");
+                MessageBox.Show("Aracın modelini giriniz!");
+                return false;
+            }
+            return true;
+        }
+
+        public bool YearControl()
+        {
+            if (textBoxYear.Text == "")
+            {
+                MessageBox.Show("Aracın üretim yılını giriniz!");
+                return false;
+            }
+            return true;
+        }
+
+        public bool GearControl()
+        {
+            if (textBoxGear.Text == "")
+            {
+                MessageBox.Show("Aracın vites türünü giriniz!");
+                return false;
+            }
+            return true;
+        }
+
+        public bool PlateControl()
+        {
+            if (textBoxPlate.Text == "")
+            {
+                MessageBox.Show("Lütfen aracın plakasını giriniz!");
                 return false;
             }
             return true;
@@ -107,7 +119,7 @@ namespace StokApp
 
         public bool RentCheckBoxControl()
         {
-            if (trueCheckBox.Checked == false && falseCheckBox.Checked == false)
+            if (checkBoxYes.Checked == false && checkBoxNo.Checked == false)
             {
                 MessageBox.Show("Araç kiralandı mı?");
                 return false;
@@ -115,23 +127,52 @@ namespace StokApp
             return true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            if (ControlInfos())
+            {
+                CarService carService = CarService.Instance;
+                ListCarForm listCarForm = new ListCarForm();
+                
+                car!.Brand = textBoxBrand.Text;
+                car.Model = textBoxModel.Text;
+                car.YearProd = int.Parse(textBoxYear.Text);
+                car.Gear = textBoxGear.Text;
+                car.Plate = textBoxPlate.Text;
+                car.IsRented = checkBoxYes.Checked;
+
+                carService.UpdateCar(car);
+                this.Close();
+                //System.Threading.Thread.Sleep(1000);
+                listCarForm.Show();
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
         {
             CarService carService = CarService.Instance;
-            carService.DeleteCar(car);
+            carService.DeleteCar(car!);
 
             ListCarForm listCarForm = new ListCarForm();
-            this.Hide();
+            this.Close();
             listCarForm.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonBack_Click(object sender, EventArgs e)
         {
             ListCarForm listCarForm = new ListCarForm();
-            this.Hide();
+            this.Close();
             listCarForm.Show();
         }
 
-        
+        private void checkBoxYes_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBoxNo.Checked = checkBoxYes.Checked == true ? false : true;
+        }
+
+        private void checkBoxNo_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBoxYes.Checked = checkBoxNo.Checked == true ? false : true;
+        }
     }
 }

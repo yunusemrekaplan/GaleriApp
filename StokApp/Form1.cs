@@ -28,9 +28,9 @@ namespace StokApp
                         nameControl = true;
                         if (person.Password == password)
                         {
-                            ListCarForm listCarForm = new ListCarForm();
+                            MainMenuForm mainMenuForm= new MainMenuForm();
                             this.Hide();
-                            listCarForm.ShowDialog();
+                            mainMenuForm.Show();
                             break;
                         }
                         else

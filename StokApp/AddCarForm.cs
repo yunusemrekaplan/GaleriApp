@@ -26,15 +26,15 @@ namespace StokApp
                 CarService carService = CarService.Instance;
                 Car car = new Car();
 
-                car.SerialNo = textBox1.Text;
-                car.Name = textBox2.Text;
-                car.LicensePlate = textBox3.Text;
+                car.SerialNo = int.Parse(textBox1.Text);
+                car.Brand = textBox2.Text;
+                car.Plate = textBox3.Text;
                 car.IsRented = trueCheckBox.Checked;
 
                 carService.AddCar(car);
 
                 ListCarForm listCarForm = new ListCarForm();
-                this.Hide();
+                this.Close();
                 listCarForm.Show();
             }
         }
@@ -172,7 +172,7 @@ namespace StokApp
         private void button2_Click(object sender, EventArgs e)
         {
             ListCarForm listCarForm = new ListCarForm();
-            this.Hide();
+            this.Close();
             listCarForm.Show();
         }
     }

@@ -30,6 +30,7 @@
         {
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
+            button2 = new Button();
             falseCheckBox = new CheckBox();
             trueCheckBox = new CheckBox();
             button1 = new Button();
@@ -40,7 +41,6 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
-            button2 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -51,7 +51,7 @@
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(800, 450);
+            groupBox1.Size = new Size(633, 450);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
@@ -76,6 +76,17 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "groupBox2";
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(3, 389);
+            button2.Name = "button2";
+            button2.Size = new Size(85, 30);
+            button2.TabIndex = 12;
+            button2.Text = "Geri";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // falseCheckBox
             // 
@@ -170,17 +181,6 @@
             label1.Size = new Size(70, 21);
             label1.TabIndex = 0;
             label1.Text = "Seri No:";
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(3, 389);
-            button2.Name = "button2";
-            button2.Size = new Size(85, 30);
-            button2.TabIndex = 12;
-            button2.Text = "Geri";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // AddCarForm
             // 

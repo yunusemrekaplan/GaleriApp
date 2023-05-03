@@ -10,7 +10,7 @@ namespace StokApp.Models
     {
         public int Id { get; set; }
         public int PersonId { get; set; }
-        public string Category { get; set; }
+        public string? Category { get; set; }
         public DateTime Time { get; set; }
     }
 }

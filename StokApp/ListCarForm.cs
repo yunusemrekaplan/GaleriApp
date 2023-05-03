@@ -1,6 +1,7 @@
 ﻿using StokApp.Models;
 using StokApp.Services;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,35 +17,48 @@ namespace StokApp
 {
     public partial class ListCarForm : Form
     {
-        List<Car>? cars;
+        /*
+        private static readonly ListCarForm _singleton = new ListCarForm();
+
+        public static ListCarForm Instance { get { return _singleton; } }
+        */
+        CarService carService = CarService.Instance;
+        bool columnClick = true;
         public ListCarForm()
         {
+            try
+            {
+                //MessageBox.Show(cars.Count.ToString());
 
-            CarService carService = CarService.Instance;
-            cars = carService.GetCarsFromDb();
-            //MessageBox.Show(cars.Count.ToString());
+                InitializeComponent();
 
-            InitializeComponent();
+                //Controls.Add(listView2);
+                
 
-            //Controls.Add(listView2);
-
-
-            ListViewBuildAllCars();
+                ListViewBuildAllCars();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void ListViewBuildAllCars()
         {
+            //cars = carService.GetCarsFromDb();
             List<string[]> rows = new List<string[]>();
 
-            foreach (Car car in cars!)
+            foreach (Car car in carService.cars!)
             {
-                string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, (car.IsRented == true ? "Müşteride" : "Stokta") };
+                string[] row = { car.SerialNo!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Gear!.ToString(), car.Plate!.ToString(), (car.IsRented == true ? "Müşteride" : "Stokta") };
                 rows.Add(row);
             }
-            listView2.Columns.Add("Seri No", 100, HorizontalAlignment.Left);
-            listView2.Columns.Add("İsim", 100, HorizontalAlignment.Left);
-            listView2.Columns.Add("Plaka", 100, HorizontalAlignment.Left);
-            listView2.Columns.Add("Durum", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("Seri No", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Marka", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Model", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Yıl", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Vites", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Plaka", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Durum", 75, HorizontalAlignment.Left);
 
             foreach (string[] row in rows)
             {
@@ -54,20 +68,24 @@ namespace StokApp
 
         public void ListViewBuildRented()
         {
+            //cars = carService.GetCarsFromDb();
             List<string[]> rows = new List<string[]>();
 
-            foreach (Car car in cars!)
+            foreach (Car car in carService.cars!)
             {
                 if (car.IsRented)
                 {
-                    string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, "Müşteride" };
+                    string[] row = { car.SerialNo!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Gear!.ToString(), car.Plate!.ToString(), "Müşteride" };
                     rows.Add(row);
                 }
             }
-            listView2.Columns.Add("Seri No", 100, HorizontalAlignment.Left);
-            listView2.Columns.Add("İsim", 100, HorizontalAlignment.Left);
-            listView2.Columns.Add("Plaka", 100, HorizontalAlignment.Left);
-            listView2.Columns.Add("Durum", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("Seri No", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Marka", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Model", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Yıl", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Vites", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Plaka", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Durum", 75, HorizontalAlignment.Left);
 
             foreach (string[] row in rows)
             {
@@ -77,20 +95,24 @@ namespace StokApp
 
         public void ListViewBuildNotRented()
         {
+            //cars = carService.GetCarsFromDb();
             List<string[]> rows = new List<string[]>();
 
-            foreach (Car car in cars!)
+            foreach (Car car in carService.cars!)
             {
                 if (!car.IsRented)
                 {
-                    string[] row = { car.SerialNo!.ToString(), car.Name!, car.LicensePlate!, "Stokta" };
+                    string[] row = { car.SerialNo!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Gear!.ToString(), car.Plate!.ToString(), "Stokta" };
                     rows.Add(row);
                 }
             }
-            listView2.Columns.Add("Seri No", 100, HorizontalAlignment.Left);
-            listView2.Columns.Add("İsim", 100, HorizontalAlignment.Left);
-            listView2.Columns.Add("Plaka", 100, HorizontalAlignment.Left);
-            listView2.Columns.Add("Durum", 100, HorizontalAlignment.Left);
+            listView2.Columns.Add("Seri No", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Marka", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Model", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Yıl", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Vites", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Plaka", 75, HorizontalAlignment.Left);
+            listView2.Columns.Add("Durum", 75, HorizontalAlignment.Left);
 
             foreach (string[] row in rows)
             {
@@ -119,7 +141,7 @@ namespace StokApp
         private void button4_Click(object sender, EventArgs e)
         {
             AddCarForm addCarForm = new AddCarForm();
-            this.Hide();
+            this.Close();
             addCarForm.Show();
         }
 
@@ -130,20 +152,89 @@ namespace StokApp
                 // Tıklanan öğeyi al
                 ListViewItem clickedItem = listView2.GetItemAt(e.X, e.Y)!;
 
-                if (clickedItem != null)
+                try
                 {
-                    foreach (Car car in cars!)
+                    if (clickedItem != null)
                     {
-                        if (car.SerialNo == clickedItem.Text)
+                        foreach (Car car in carService.cars!)
                         {
-                            CarInfoForm carInfoForm = new CarInfoForm(car);
-                            this.Hide();
-                            carInfoForm.Show();
-                            break;
+                            if (car.SerialNo == int.Parse(clickedItem.Text))
+                            {
+                                CarInfoForm carInfoForm = new CarInfoForm(car);
+                                this.Close();
+                                carInfoForm.Show();
+                                break;
+                            }
                         }
                     }
+                } catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MainMenuForm mainMenuForm = new MainMenuForm();
+            this.Close();
+            mainMenuForm.Show();
+        }
+
+        private void listView2_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (columnClick)
+            {
+                this.listView2.ListViewItemSorter = new ListViewItemComparer(e.Column, SortOrder.Descending);
+                columnClick = false;
+            }
+            else
+            {
+                this.listView2.ListViewItemSorter = new ListViewItemComparer(e.Column, SortOrder.Ascending);
+                columnClick = true;
+            }
+
+            // Sıralama özelliği etkinleştirilir
+            this.listView2.Sort();
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListCarForm_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+public class ListViewItemComparer : IComparer
+{
+    private int col;
+    private SortOrder order;
+
+    public ListViewItemComparer(int column, SortOrder order)
+    {
+        col = column;
+        this.order = order;
+    }
+
+    public int Compare(object? x, object? y)
+    {
+        int result = String.Compare(((ListViewItem)x!).SubItems[col].Text, ((ListViewItem)y!).SubItems[col].Text);
+
+        if (order == SortOrder.Descending)
+        {
+            result *= -1;
+        }
+
+        return result;
     }
 }
