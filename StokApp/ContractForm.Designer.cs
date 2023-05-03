@@ -75,6 +75,7 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
+            groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(259, 220);
@@ -86,42 +87,42 @@
             // 
             textBoxLicenseDate.Location = new Point(126, 178);
             textBoxLicenseDate.Name = "textBoxLicenseDate";
-            textBoxLicenseDate.Size = new Size(100, 23);
+            textBoxLicenseDate.Size = new Size(100, 25);
             textBoxLicenseDate.TabIndex = 11;
             // 
             // textBoxLicenseNo
             // 
             textBoxLicenseNo.Location = new Point(126, 148);
             textBoxLicenseNo.Name = "textBoxLicenseNo";
-            textBoxLicenseNo.Size = new Size(100, 23);
+            textBoxLicenseNo.Size = new Size(100, 25);
             textBoxLicenseNo.TabIndex = 10;
             // 
             // textBoxTelNo
             // 
             textBoxTelNo.Location = new Point(126, 118);
             textBoxTelNo.Name = "textBoxTelNo";
-            textBoxTelNo.Size = new Size(100, 23);
+            textBoxTelNo.Size = new Size(100, 25);
             textBoxTelNo.TabIndex = 9;
             // 
             // textBoxSurname
             // 
             textBoxSurname.Location = new Point(126, 88);
             textBoxSurname.Name = "textBoxSurname";
-            textBoxSurname.Size = new Size(100, 23);
+            textBoxSurname.Size = new Size(100, 25);
             textBoxSurname.TabIndex = 8;
             // 
             // textBoxName
             // 
             textBoxName.Location = new Point(126, 58);
             textBoxName.Name = "textBoxName";
-            textBoxName.Size = new Size(100, 23);
+            textBoxName.Size = new Size(100, 25);
             textBoxName.TabIndex = 7;
             // 
             // textBoxTc
             // 
             textBoxTc.Location = new Point(126, 28);
             textBoxTc.Name = "textBoxTc";
-            textBoxTc.Size = new Size(100, 23);
+            textBoxTc.Size = new Size(100, 25);
             textBoxTc.TabIndex = 6;
             // 
             // label6
@@ -200,18 +201,19 @@
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(comboBox1);
             groupBox2.Controls.Add(label7);
+            groupBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox2.Location = new Point(277, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(581, 220);
+            groupBox2.Size = new Size(561, 220);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            groupBox2.Text = "Sözleşme";
             // 
             // dateTimePicker2
             // 
             dateTimePicker2.Location = new Point(127, 178);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 23);
+            dateTimePicker2.Size = new Size(200, 25);
             dateTimePicker2.TabIndex = 11;
             // 
             // label13
@@ -228,7 +230,7 @@
             // 
             dateTimePicker1.Location = new Point(127, 148);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.Size = new Size(200, 25);
             dateTimePicker1.TabIndex = 9;
             // 
             // label12
@@ -245,7 +247,7 @@
             // 
             textBox1.Location = new Point(127, 118);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
+            textBox1.Size = new Size(100, 25);
             textBox1.TabIndex = 7;
             // 
             // label11
@@ -283,7 +285,7 @@
             comboBox2.FormattingEnabled = true;
             comboBox2.Location = new Point(127, 58);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(105, 23);
+            comboBox2.Size = new Size(105, 25);
             comboBox2.TabIndex = 3;
             // 
             // label8
@@ -301,7 +303,7 @@
             comboBox1.FormattingEnabled = true;
             comboBox1.Location = new Point(127, 28);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(105, 23);
+            comboBox1.Size = new Size(105, 25);
             comboBox1.TabIndex = 1;
             // 
             // label7
@@ -336,18 +338,19 @@
             // 
             // groupBox3
             // 
+            groupBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox3.Location = new Point(12, 238);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(846, 501);
+            groupBox3.Size = new Size(826, 494);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
-            groupBox3.Text = "groupBox3";
+            groupBox3.Text = "Araçlar";
             // 
             // ContractForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(870, 751);
+            ClientSize = new Size(850, 744);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
