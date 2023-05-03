@@ -12,11 +12,11 @@ namespace StokApp
 {
     public partial class MainMenuForm : Form
     {
-        
+
         private static readonly MainMenuForm _singleton = new MainMenuForm();
 
         public static MainMenuForm Instance { get { return _singleton; } }
-        
+
         public MainMenuForm()
         {
             InitializeComponent();
