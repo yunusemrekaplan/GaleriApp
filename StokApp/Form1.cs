@@ -6,6 +6,8 @@ namespace StokApp
 {
     public partial class Form1 : Form
     {
+        private static readonly Form1 _singleton = new Form1();
+        public static Form1 Instance { get { return _singleton; } }
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace StokApp
                         nameControl = true;
                         if (person.Password == password)
                         {
-                            MainMenuForm mainMenuForm= new MainMenuForm();
+                            MainMenuForm mainMenuForm = MainMenuForm.Instance;
                             this.Hide();
                             mainMenuForm.Show();
                             break;
@@ -49,6 +51,11 @@ namespace StokApp
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

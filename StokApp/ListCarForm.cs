@@ -19,9 +19,9 @@ namespace StokApp
     {
         /*
         private static readonly ListCarForm _singleton = new ListCarForm();
-
         public static ListCarForm Instance { get { return _singleton; } }
         */
+        
         CarService carService = CarService.Instance;
         bool columnClick = true;
         public ListCarForm()
@@ -47,7 +47,7 @@ namespace StokApp
             //cars = carService.GetCarsFromDb();
             List<string[]> rows = new List<string[]>();
 
-            foreach (Car car in carService.cars!)
+            foreach (Car car in carService.Cars!)
             {
                 string[] row = { car.SerialNo!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Gear!.ToString(), car.Plate!.ToString(), (car.IsRented == true ? "Müşteride" : "Stokta") };
                 rows.Add(row);
@@ -71,7 +71,7 @@ namespace StokApp
             //cars = carService.GetCarsFromDb();
             List<string[]> rows = new List<string[]>();
 
-            foreach (Car car in carService.cars!)
+            foreach (Car car in carService.Cars!)
             {
                 if (car.IsRented)
                 {
@@ -98,7 +98,7 @@ namespace StokApp
             //cars = carService.GetCarsFromDb();
             List<string[]> rows = new List<string[]>();
 
-            foreach (Car car in carService.cars!)
+            foreach (Car car in carService.Cars!)
             {
                 if (!car.IsRented)
                 {
@@ -141,7 +141,7 @@ namespace StokApp
         private void button4_Click(object sender, EventArgs e)
         {
             AddCarForm addCarForm = new AddCarForm();
-            this.Close();
+            this.Hide();
             addCarForm.Show();
         }
 
@@ -156,12 +156,12 @@ namespace StokApp
                 {
                     if (clickedItem != null)
                     {
-                        foreach (Car car in carService.cars!)
+                        foreach (Car car in carService.Cars!)
                         {
                             if (car.SerialNo == int.Parse(clickedItem.Text))
                             {
                                 CarInfoForm carInfoForm = new CarInfoForm(car);
-                                this.Close();
+                                this.Hide();
                                 carInfoForm.Show();
                                 break;
                             }
@@ -181,8 +181,8 @@ namespace StokApp
 
         private void button5_Click(object sender, EventArgs e)
         {
-            MainMenuForm mainMenuForm = new MainMenuForm();
-            this.Close();
+            MainMenuForm mainMenuForm = MainMenuForm.Instance;
+            this.Hide();
             mainMenuForm.Show();
         }
 

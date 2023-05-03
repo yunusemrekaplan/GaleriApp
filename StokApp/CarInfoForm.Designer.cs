@@ -49,6 +49,16 @@
             labelBrand = new Label();
             txtSeriNo = new Label();
             labelSeriNo = new Label();
+            labelDailyPrice = new Label();
+            textBoxDailyPrice = new TextBox();
+            textBoxWeeklyPrice = new TextBox();
+            labelWeeklyPrice = new Label();
+            textBoxMonthlyPrice = new TextBox();
+            labelMonthlyPrice = new Label();
+            textBoxSixMonthPrice = new TextBox();
+            labelsixMonthPrice = new Label();
+            textBoxAnnualPrice = new TextBox();
+            labelAnnualPrice = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -64,6 +74,16 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(textBoxAnnualPrice);
+            groupBox1.Controls.Add(labelAnnualPrice);
+            groupBox1.Controls.Add(textBoxSixMonthPrice);
+            groupBox1.Controls.Add(labelsixMonthPrice);
+            groupBox1.Controls.Add(textBoxMonthlyPrice);
+            groupBox1.Controls.Add(labelMonthlyPrice);
+            groupBox1.Controls.Add(textBoxWeeklyPrice);
+            groupBox1.Controls.Add(labelWeeklyPrice);
+            groupBox1.Controls.Add(textBoxDailyPrice);
+            groupBox1.Controls.Add(labelDailyPrice);
             groupBox1.Controls.Add(buttonDelete);
             groupBox1.Controls.Add(buttonUpdate);
             groupBox1.Controls.Add(buttonBack);
@@ -84,10 +104,8 @@
             groupBox1.Controls.Add(labelSeriNo);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(797, 592);
+            groupBox1.Size = new Size(697, 444);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             // 
@@ -95,10 +113,9 @@
             // 
             buttonDelete.Anchor = AnchorStyles.None;
             buttonDelete.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonDelete.Location = new Point(462, 432);
-            buttonDelete.Margin = new Padding(3, 4, 3, 4);
+            buttonDelete.Location = new Point(461, 251);
             buttonDelete.Name = "buttonDelete";
-            buttonDelete.Size = new Size(98, 41);
+            buttonDelete.Size = new Size(86, 31);
             buttonDelete.TabIndex = 18;
             buttonDelete.Text = "Sil";
             buttonDelete.UseVisualStyleBackColor = true;
@@ -108,10 +125,9 @@
             // 
             buttonUpdate.Anchor = AnchorStyles.None;
             buttonUpdate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonUpdate.Location = new Point(346, 432);
-            buttonUpdate.Margin = new Padding(3, 4, 3, 4);
+            buttonUpdate.Location = new Point(360, 251);
             buttonUpdate.Name = "buttonUpdate";
-            buttonUpdate.Size = new Size(110, 41);
+            buttonUpdate.Size = new Size(96, 31);
             buttonUpdate.TabIndex = 17;
             buttonUpdate.Text = "Güncelle";
             buttonUpdate.UseVisualStyleBackColor = true;
@@ -121,10 +137,9 @@
             // 
             buttonBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             buttonBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            buttonBack.Location = new Point(7, 543);
-            buttonBack.Margin = new Padding(3, 4, 3, 4);
+            buttonBack.Location = new Point(6, 407);
             buttonBack.Name = "buttonBack";
-            buttonBack.Size = new Size(98, 41);
+            buttonBack.Size = new Size(86, 31);
             buttonBack.TabIndex = 18;
             buttonBack.Text = "Geri";
             buttonBack.UseVisualStyleBackColor = true;
@@ -133,56 +148,50 @@
             // textBoxPlate
             // 
             textBoxPlate.Anchor = AnchorStyles.None;
-            textBoxPlate.Location = new Point(346, 340);
-            textBoxPlate.Margin = new Padding(3, 4, 3, 4);
+            textBoxPlate.Location = new Point(207, 249);
             textBoxPlate.Name = "textBoxPlate";
-            textBoxPlate.Size = new Size(114, 27);
+            textBoxPlate.Size = new Size(100, 23);
             textBoxPlate.TabIndex = 14;
             // 
             // textBoxGear
             // 
             textBoxGear.Anchor = AnchorStyles.None;
-            textBoxGear.Location = new Point(346, 287);
-            textBoxGear.Margin = new Padding(3, 4, 3, 4);
+            textBoxGear.Location = new Point(207, 209);
             textBoxGear.Name = "textBoxGear";
-            textBoxGear.Size = new Size(114, 27);
+            textBoxGear.Size = new Size(100, 23);
             textBoxGear.TabIndex = 13;
             // 
             // textBoxYear
             // 
             textBoxYear.Anchor = AnchorStyles.None;
-            textBoxYear.Location = new Point(346, 233);
-            textBoxYear.Margin = new Padding(3, 4, 3, 4);
+            textBoxYear.Location = new Point(207, 169);
             textBoxYear.Name = "textBoxYear";
-            textBoxYear.Size = new Size(114, 27);
+            textBoxYear.Size = new Size(100, 23);
             textBoxYear.TabIndex = 12;
             // 
             // textBoxModel
             // 
             textBoxModel.Anchor = AnchorStyles.None;
-            textBoxModel.Location = new Point(346, 180);
-            textBoxModel.Margin = new Padding(3, 4, 3, 4);
+            textBoxModel.Location = new Point(207, 129);
             textBoxModel.Name = "textBoxModel";
-            textBoxModel.Size = new Size(114, 27);
+            textBoxModel.Size = new Size(100, 23);
             textBoxModel.TabIndex = 11;
             // 
             // textBoxBrand
             // 
             textBoxBrand.Anchor = AnchorStyles.None;
-            textBoxBrand.Location = new Point(346, 127);
-            textBoxBrand.Margin = new Padding(3, 4, 3, 4);
+            textBoxBrand.Location = new Point(207, 89);
             textBoxBrand.Name = "textBoxBrand";
-            textBoxBrand.Size = new Size(114, 27);
+            textBoxBrand.Size = new Size(100, 23);
             textBoxBrand.TabIndex = 10;
             // 
             // checkBoxNo
             // 
             checkBoxNo.Anchor = AnchorStyles.None;
             checkBoxNo.AutoSize = true;
-            checkBoxNo.Location = new Point(408, 399);
-            checkBoxNo.Margin = new Padding(3, 4, 3, 4);
+            checkBoxNo.Location = new Point(261, 293);
             checkBoxNo.Name = "checkBoxNo";
-            checkBoxNo.Size = new Size(66, 24);
+            checkBoxNo.Size = new Size(54, 19);
             checkBoxNo.TabIndex = 9;
             checkBoxNo.Text = "Hayır";
             checkBoxNo.UseVisualStyleBackColor = true;
@@ -192,10 +201,9 @@
             // 
             checkBoxYes.Anchor = AnchorStyles.None;
             checkBoxYes.AutoSize = true;
-            checkBoxYes.Location = new Point(346, 399);
-            checkBoxYes.Margin = new Padding(3, 4, 3, 4);
+            checkBoxYes.Location = new Point(207, 293);
             checkBoxYes.Name = "checkBoxYes";
-            checkBoxYes.Size = new Size(59, 24);
+            checkBoxYes.Size = new Size(48, 19);
             checkBoxYes.TabIndex = 8;
             checkBoxYes.Text = "Evet";
             checkBoxYes.UseVisualStyleBackColor = true;
@@ -206,9 +214,9 @@
             labelRented.Anchor = AnchorStyles.None;
             labelRented.AutoSize = true;
             labelRented.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelRented.Location = new Point(217, 396);
+            labelRented.Location = new Point(94, 291);
             labelRented.Name = "labelRented";
-            labelRented.Size = new Size(132, 28);
+            labelRented.Size = new Size(107, 21);
             labelRented.TabIndex = 7;
             labelRented.Text = "Kiralandı mı:";
             // 
@@ -217,9 +225,9 @@
             labelPlate.Anchor = AnchorStyles.None;
             labelPlate.AutoSize = true;
             labelPlate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelPlate.Location = new Point(275, 343);
+            labelPlate.Location = new Point(145, 251);
             labelPlate.Name = "labelPlate";
-            labelPlate.Size = new Size(68, 28);
+            labelPlate.Size = new Size(56, 21);
             labelPlate.TabIndex = 6;
             labelPlate.Text = "Plaka:";
             // 
@@ -228,9 +236,9 @@
             labelGear.Anchor = AnchorStyles.None;
             labelGear.AutoSize = true;
             labelGear.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelGear.Location = new Point(280, 289);
+            labelGear.Location = new Point(149, 211);
             labelGear.Name = "labelGear";
-            labelGear.Size = new Size(64, 28);
+            labelGear.Size = new Size(52, 21);
             labelGear.TabIndex = 5;
             labelGear.Text = "Vites:";
             // 
@@ -239,9 +247,9 @@
             labelYear.Anchor = AnchorStyles.None;
             labelYear.AutoSize = true;
             labelYear.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelYear.Location = new Point(301, 236);
+            labelYear.Location = new Point(167, 171);
             labelYear.Name = "labelYear";
-            labelYear.Size = new Size(41, 28);
+            labelYear.Size = new Size(34, 21);
             labelYear.TabIndex = 4;
             labelYear.Text = "Yıl:";
             // 
@@ -250,9 +258,9 @@
             labelModel.Anchor = AnchorStyles.None;
             labelModel.AutoSize = true;
             labelModel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelModel.Location = new Point(267, 183);
+            labelModel.Location = new Point(138, 131);
             labelModel.Name = "labelModel";
-            labelModel.Size = new Size(77, 28);
+            labelModel.Size = new Size(63, 21);
             labelModel.TabIndex = 3;
             labelModel.Text = "Model:";
             // 
@@ -261,9 +269,9 @@
             labelBrand.Anchor = AnchorStyles.None;
             labelBrand.AutoSize = true;
             labelBrand.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelBrand.Location = new Point(269, 129);
+            labelBrand.Location = new Point(139, 91);
             labelBrand.Name = "labelBrand";
-            labelBrand.Size = new Size(77, 28);
+            labelBrand.Size = new Size(62, 21);
             labelBrand.TabIndex = 2;
             labelBrand.Text = "Marka:";
             // 
@@ -272,9 +280,9 @@
             txtSeriNo.Anchor = AnchorStyles.None;
             txtSeriNo.AutoSize = true;
             txtSeriNo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            txtSeriNo.Location = new Point(346, 76);
+            txtSeriNo.Location = new Point(207, 51);
             txtSeriNo.Name = "txtSeriNo";
-            txtSeriNo.Size = new Size(0, 28);
+            txtSeriNo.Size = new Size(0, 21);
             txtSeriNo.TabIndex = 1;
             // 
             // labelSeriNo
@@ -282,19 +290,103 @@
             labelSeriNo.Anchor = AnchorStyles.None;
             labelSeriNo.AutoSize = true;
             labelSeriNo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            labelSeriNo.Location = new Point(259, 76);
+            labelSeriNo.Location = new Point(131, 51);
             labelSeriNo.Name = "labelSeriNo";
-            labelSeriNo.Size = new Size(87, 28);
+            labelSeriNo.Size = new Size(70, 21);
             labelSeriNo.TabIndex = 0;
             labelSeriNo.Text = "Seri No:";
             // 
+            // labelDailyPrice
+            // 
+            labelDailyPrice.AutoSize = true;
+            labelDailyPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelDailyPrice.Location = new Point(344, 51);
+            labelDailyPrice.Name = "labelDailyPrice";
+            labelDailyPrice.Size = new Size(114, 21);
+            labelDailyPrice.TabIndex = 19;
+            labelDailyPrice.Text = "Günlük Ücret:";
+            // 
+            // textBoxDailyPrice
+            // 
+            textBoxDailyPrice.Location = new Point(464, 49);
+            textBoxDailyPrice.Name = "textBoxDailyPrice";
+            textBoxDailyPrice.Size = new Size(100, 23);
+            textBoxDailyPrice.TabIndex = 20;
+            // 
+            // textBoxWeeklyPrice
+            // 
+            textBoxWeeklyPrice.Location = new Point(464, 89);
+            textBoxWeeklyPrice.Name = "textBoxWeeklyPrice";
+            textBoxWeeklyPrice.Size = new Size(100, 23);
+            textBoxWeeklyPrice.TabIndex = 22;
+            // 
+            // labelWeeklyPrice
+            // 
+            labelWeeklyPrice.AutoSize = true;
+            labelWeeklyPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelWeeklyPrice.Location = new Point(338, 91);
+            labelWeeklyPrice.Name = "labelWeeklyPrice";
+            labelWeeklyPrice.Size = new Size(120, 21);
+            labelWeeklyPrice.TabIndex = 21;
+            labelWeeklyPrice.Text = "Haftalık Ücret:";
+            // 
+            // textBoxMonthlyPrice
+            // 
+            textBoxMonthlyPrice.Location = new Point(464, 129);
+            textBoxMonthlyPrice.Name = "textBoxMonthlyPrice";
+            textBoxMonthlyPrice.Size = new Size(100, 23);
+            textBoxMonthlyPrice.TabIndex = 24;
+            // 
+            // labelMonthlyPrice
+            // 
+            labelMonthlyPrice.AutoSize = true;
+            labelMonthlyPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelMonthlyPrice.Location = new Point(360, 131);
+            labelMonthlyPrice.Name = "labelMonthlyPrice";
+            labelMonthlyPrice.Size = new Size(98, 21);
+            labelMonthlyPrice.TabIndex = 23;
+            labelMonthlyPrice.Text = "Aylık Ücret:";
+            // 
+            // textBoxSixMonthPrice
+            // 
+            textBoxSixMonthPrice.Location = new Point(464, 169);
+            textBoxSixMonthPrice.Name = "textBoxSixMonthPrice";
+            textBoxSixMonthPrice.Size = new Size(100, 23);
+            textBoxSixMonthPrice.TabIndex = 26;
+            // 
+            // labelsixMonthPrice
+            // 
+            labelsixMonthPrice.AutoSize = true;
+            labelsixMonthPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelsixMonthPrice.Location = new Point(347, 171);
+            labelsixMonthPrice.Name = "labelsixMonthPrice";
+            labelsixMonthPrice.Size = new Size(111, 21);
+            labelsixMonthPrice.TabIndex = 25;
+            labelsixMonthPrice.Text = "6 Aylık Ücret:";
+            // 
+            // textBoxAnnualPrice
+            // 
+            textBoxAnnualPrice.Location = new Point(464, 209);
+            textBoxAnnualPrice.Name = "textBoxAnnualPrice";
+            textBoxAnnualPrice.Size = new Size(100, 23);
+            textBoxAnnualPrice.TabIndex = 28;
+            // 
+            // labelAnnualPrice
+            // 
+            labelAnnualPrice.AutoSize = true;
+            labelAnnualPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelAnnualPrice.Location = new Point(360, 211);
+            labelAnnualPrice.Name = "labelAnnualPrice";
+            labelAnnualPrice.Size = new Size(98, 21);
+            labelAnnualPrice.TabIndex = 27;
+            labelAnnualPrice.Text = "Yıllık Ücret:";
+            // 
             // CarInfoForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(797, 592);
+            ClientSize = new Size(697, 444);
             Controls.Add(groupBox1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "CarInfoForm";
             Text = "CarInfoForm";
             groupBox1.ResumeLayout(false);
@@ -323,5 +415,15 @@
         private Button buttonBack;
         private Button buttonDelete;
         private Button buttonUpdate;
+        private TextBox textBoxAnnualPrice;
+        private Label labelAnnualPrice;
+        private TextBox textBoxSixMonthPrice;
+        private Label labelsixMonthPrice;
+        private TextBox textBoxMonthlyPrice;
+        private Label labelMonthlyPrice;
+        private TextBox textBoxWeeklyPrice;
+        private Label labelWeeklyPrice;
+        private TextBox textBoxDailyPrice;
+        private Label labelDailyPrice;
     }
 }

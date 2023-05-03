@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace StokApp
 {
@@ -19,37 +20,52 @@ namespace StokApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (ControlInputs())
+            if (ControlInfos())
             {
                 CarService carService = CarService.Instance;
+                ListCarForm listCarForm = new ListCarForm();
                 Car car = new Car();
 
-                car.SerialNo = int.Parse(textBox1.Text);
-                car.Brand = textBox2.Text;
-                car.Plate = textBox3.Text;
-                car.IsRented = trueCheckBox.Checked;
+                car!.SerialNo = int.Parse(textBoxSeriNo.Text);
+                car!.Brand = textBoxBrand.Text;
+                car.Model = textBoxModel.Text;
+                car.YearProd = int.Parse(textBoxYear.Text);
+                car.Gear = textBoxGear.Text;
+                car.Plate = textBoxPlate.Text;
+                car.IsRented = checkBoxYes.Checked;
 
                 carService.AddCar(car);
-
-                ListCarForm listCarForm = new ListCarForm();
-                this.Close();
+                this.Hide();
+                //System.Threading.Thread.Sleep(1000);
                 listCarForm.Show();
             }
         }
 
-        private bool ControlInputs()
+        private bool ControlInfos()
         {
             if (!SerialNoControl())
             {
                 return false;
             }
-            if (!NameControl())
+            if (!BrandControl())
             {
                 return false;
             }
-            if (!LicensePlateControl())
+            if (!ModelControl())
+            {
+                return false;
+            }
+            if (!YearControl())
+            {
+                return false;
+            }
+            if (!GearControl())
+            {
+                return false;
+            }
+            if (!PlateControl())
             {
                 return false;
             }
@@ -59,10 +75,9 @@ namespace StokApp
             }
             return true;
         }
-
         public bool SerialNoControl()
         {
-            string serialNo = textBox1.Text;
+            string serialNo = textBoxSeriNo.Text;
             string nums = "0123456789";
 
             bool control = false;
@@ -112,32 +127,51 @@ namespace StokApp
             }
             return baseControl;
         }
-
-        public bool NameControl()
+        public bool BrandControl()
         {
-            if (textBox2.Text.Length == 0)
+            if (textBoxBrand.Text == "")
             {
-                MessageBox.Show("Aracın modelini girin!");
-                return false;
-            }
-            if (textBox2.Text == "")
-            {
-                MessageBox.Show("Aracın ismini giriniz!");
+                MessageBox.Show("Aracın markasını giriniz!");
                 return false;
             }
             return true;
         }
 
-        public bool LicensePlateControl()
+        public bool ModelControl()
         {
-            if (textBox3.Text.Length == 0)
+            if (textBoxModel.Text == "")
             {
-                MessageBox.Show("Aracın plakasını girin!");
+                MessageBox.Show("Aracın modelini giriniz!");
                 return false;
             }
-            if (textBox3.Text == "")
+            return true;
+        }
+
+        public bool YearControl()
+        {
+            if (textBoxYear.Text == "")
             {
-                MessageBox.Show("Lütfen araç plakasını giriniz!");
+                MessageBox.Show("Aracın üretim yılını giriniz!");
+                return false;
+            }
+            return true;
+        }
+
+        public bool GearControl()
+        {
+            if (textBoxGear.Text == "")
+            {
+                MessageBox.Show("Aracın vites türünü giriniz!");
+                return false;
+            }
+            return true;
+        }
+
+        public bool PlateControl()
+        {
+            if (textBoxPlate.Text == "")
+            {
+                MessageBox.Show("Lütfen aracın plakasını giriniz!");
                 return false;
             }
             return true;
@@ -145,7 +179,7 @@ namespace StokApp
 
         public bool RentCheckBoxControl()
         {
-            if (trueCheckBox.Checked == false && falseCheckBox.Checked == false)
+            if (checkBoxYes.Checked == false && checkBoxNo.Checked == false)
             {
                 MessageBox.Show("Araç kiralandı mı?");
                 return false;
@@ -153,27 +187,15 @@ namespace StokApp
             return true;
         }
 
-        private void trueCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxYes_CheckedChanged(object sender, EventArgs e)
         {
-            if (trueCheckBox.Checked == true)
-            {
-                falseCheckBox.Checked = false;
-            }
+            checkBoxNo.Checked = checkBoxYes.Checked == true ? false : true;
         }
 
-        private void falseCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void checkBoxNo_CheckedChanged(object sender, EventArgs e)
         {
-            if (falseCheckBox.Checked == true)
-            {
-                trueCheckBox.Checked = false;
-            }
+            checkBoxYes.Checked = checkBoxNo.Checked == true ? false : true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ListCarForm listCarForm = new ListCarForm();
-            this.Close();
-            listCarForm.Show();
-        }
     }
 }

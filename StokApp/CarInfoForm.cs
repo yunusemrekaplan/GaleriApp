@@ -127,13 +127,22 @@ namespace StokApp
             return true;
         }
 
+        private void checkBoxYes_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBoxNo.Checked = checkBoxYes.Checked == true ? false : true;
+        }
+
+        private void checkBoxNo_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBoxYes.Checked = checkBoxNo.Checked == true ? false : true;
+        }
+
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             if (ControlInfos())
             {
                 CarService carService = CarService.Instance;
-                ListCarForm listCarForm = new ListCarForm();
-                
+
                 car!.Brand = textBoxBrand.Text;
                 car.Model = textBoxModel.Text;
                 car.YearProd = int.Parse(textBoxYear.Text);
@@ -142,8 +151,9 @@ namespace StokApp
                 car.IsRented = checkBoxYes.Checked;
 
                 carService.UpdateCar(car);
-                this.Close();
-                //System.Threading.Thread.Sleep(1000);
+                this.Hide();
+
+                ListCarForm listCarForm = new ListCarForm();
                 listCarForm.Show();
             }
         }
@@ -154,25 +164,15 @@ namespace StokApp
             carService.DeleteCar(car!);
 
             ListCarForm listCarForm = new ListCarForm();
-            this.Close();
+            this.Hide();
             listCarForm.Show();
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
         {
             ListCarForm listCarForm = new ListCarForm();
-            this.Close();
+            this.Hide();
             listCarForm.Show();
-        }
-
-        private void checkBoxYes_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBoxNo.Checked = checkBoxYes.Checked == true ? false : true;
-        }
-
-        private void checkBoxNo_CheckedChanged(object sender, EventArgs e)
-        {
-            checkBoxYes.Checked = checkBoxNo.Checked == true ? false : true;
         }
     }
 }

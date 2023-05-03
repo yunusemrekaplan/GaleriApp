@@ -29,187 +29,257 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
-            button2 = new Button();
-            falseCheckBox = new CheckBox();
-            trueCheckBox = new CheckBox();
-            button1 = new Button();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
+            textBoxPlate = new TextBox();
+            textBoxGear = new TextBox();
+            textBoxYear = new TextBox();
+            labelPlate = new Label();
+            labelGear = new Label();
+            labelYear = new Label();
+            buttonBack = new Button();
+            checkBoxNo = new CheckBox();
+            checkBoxYes = new CheckBox();
+            buttonSave = new Button();
+            textBoxModel = new TextBox();
+            textBoxBrand = new TextBox();
+            textBoxSeriNo = new TextBox();
+            labelIsRented = new Label();
+            labelModel = new Label();
+            labelBrand = new Label();
+            labelSeriNo = new Label();
             groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(groupBox2);
+            groupBox1.Controls.Add(textBoxPlate);
+            groupBox1.Controls.Add(textBoxGear);
+            groupBox1.Controls.Add(textBoxYear);
+            groupBox1.Controls.Add(labelPlate);
+            groupBox1.Controls.Add(labelGear);
+            groupBox1.Controls.Add(labelYear);
+            groupBox1.Controls.Add(buttonBack);
+            groupBox1.Controls.Add(checkBoxNo);
+            groupBox1.Controls.Add(checkBoxYes);
+            groupBox1.Controls.Add(buttonSave);
+            groupBox1.Controls.Add(textBoxModel);
+            groupBox1.Controls.Add(textBoxBrand);
+            groupBox1.Controls.Add(textBoxSeriNo);
+            groupBox1.Controls.Add(labelIsRented);
+            groupBox1.Controls.Add(labelModel);
+            groupBox1.Controls.Add(labelBrand);
+            groupBox1.Controls.Add(labelSeriNo);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(633, 450);
+            groupBox1.Size = new Size(517, 565);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
-            // groupBox2
+            // textBoxPlate
             // 
-            groupBox2.Controls.Add(button2);
-            groupBox2.Controls.Add(falseCheckBox);
-            groupBox2.Controls.Add(trueCheckBox);
-            groupBox2.Controls.Add(button1);
-            groupBox2.Controls.Add(textBox3);
-            groupBox2.Controls.Add(textBox2);
-            groupBox2.Controls.Add(textBox1);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(label2);
-            groupBox2.Controls.Add(label1);
-            groupBox2.Dock = DockStyle.Left;
-            groupBox2.Location = new Point(3, 19);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(456, 428);
-            groupBox2.TabIndex = 1;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            textBoxPlate.Anchor = AnchorStyles.None;
+            textBoxPlate.Location = new Point(237, 251);
+            textBoxPlate.Name = "textBoxPlate";
+            textBoxPlate.Size = new Size(100, 23);
+            textBoxPlate.TabIndex = 35;
             // 
-            // button2
+            // textBoxGear
             // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(3, 389);
-            button2.Name = "button2";
-            button2.Size = new Size(85, 30);
-            button2.TabIndex = 12;
-            button2.Text = "Geri";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            textBoxGear.Anchor = AnchorStyles.None;
+            textBoxGear.Location = new Point(237, 221);
+            textBoxGear.Name = "textBoxGear";
+            textBoxGear.Size = new Size(100, 23);
+            textBoxGear.TabIndex = 34;
             // 
-            // falseCheckBox
+            // textBoxYear
             // 
-            falseCheckBox.AutoSize = true;
-            falseCheckBox.Location = new Point(162, 152);
-            falseCheckBox.Name = "falseCheckBox";
-            falseCheckBox.Size = new Size(54, 19);
-            falseCheckBox.TabIndex = 11;
-            falseCheckBox.Text = "Hayır";
-            falseCheckBox.UseVisualStyleBackColor = true;
-            falseCheckBox.CheckedChanged += falseCheckBox_CheckedChanged;
+            textBoxYear.Anchor = AnchorStyles.None;
+            textBoxYear.Location = new Point(237, 191);
+            textBoxYear.Name = "textBoxYear";
+            textBoxYear.Size = new Size(100, 23);
+            textBoxYear.TabIndex = 33;
             // 
-            // trueCheckBox
+            // labelPlate
             // 
-            trueCheckBox.AutoSize = true;
-            trueCheckBox.Location = new Point(116, 152);
-            trueCheckBox.Name = "trueCheckBox";
-            trueCheckBox.Size = new Size(48, 19);
-            trueCheckBox.TabIndex = 10;
-            trueCheckBox.Text = "Evet";
-            trueCheckBox.UseVisualStyleBackColor = true;
-            trueCheckBox.CheckedChanged += trueCheckBox_CheckedChanged;
+            labelPlate.Anchor = AnchorStyles.None;
+            labelPlate.AutoSize = true;
+            labelPlate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelPlate.Location = new Point(175, 251);
+            labelPlate.Name = "labelPlate";
+            labelPlate.Size = new Size(56, 21);
+            labelPlate.TabIndex = 32;
+            labelPlate.Text = "Plaka:";
             // 
-            // button1
+            // labelGear
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.Location = new Point(116, 191);
-            button1.Name = "button1";
-            button1.Size = new Size(100, 31);
-            button1.TabIndex = 9;
-            button1.Text = "Kaydet";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            labelGear.Anchor = AnchorStyles.None;
+            labelGear.AutoSize = true;
+            labelGear.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelGear.Location = new Point(179, 221);
+            labelGear.Name = "labelGear";
+            labelGear.Size = new Size(52, 21);
+            labelGear.TabIndex = 31;
+            labelGear.Text = "Vites:";
             // 
-            // textBox3
+            // labelYear
             // 
-            textBox3.Location = new Point(116, 120);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 6;
+            labelYear.Anchor = AnchorStyles.None;
+            labelYear.AutoSize = true;
+            labelYear.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelYear.Location = new Point(197, 191);
+            labelYear.Name = "labelYear";
+            labelYear.Size = new Size(34, 21);
+            labelYear.TabIndex = 30;
+            labelYear.Text = "Yıl:";
             // 
-            // textBox2
+            // buttonBack
             // 
-            textBox2.Location = new Point(116, 90);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 5;
+            buttonBack.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            buttonBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonBack.Location = new Point(6, 529);
+            buttonBack.Name = "buttonBack";
+            buttonBack.Size = new Size(85, 30);
+            buttonBack.TabIndex = 29;
+            buttonBack.Text = "Geri";
+            buttonBack.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // checkBoxNo
             // 
-            textBox1.Location = new Point(116, 60);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 4;
+            checkBoxNo.Anchor = AnchorStyles.None;
+            checkBoxNo.AutoSize = true;
+            checkBoxNo.Location = new Point(283, 283);
+            checkBoxNo.Name = "checkBoxNo";
+            checkBoxNo.Size = new Size(54, 19);
+            checkBoxNo.TabIndex = 28;
+            checkBoxNo.Text = "Hayır";
+            checkBoxNo.UseVisualStyleBackColor = true;
+            checkBoxNo.CheckedChanged += checkBoxNo_CheckedChanged;
             // 
-            // label4
+            // checkBoxYes
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(3, 150);
-            label4.Name = "label4";
-            label4.Size = new Size(107, 21);
-            label4.TabIndex = 3;
-            label4.Text = "Kiralandı Mı:";
+            checkBoxYes.Anchor = AnchorStyles.None;
+            checkBoxYes.AutoSize = true;
+            checkBoxYes.Location = new Point(237, 283);
+            checkBoxYes.Name = "checkBoxYes";
+            checkBoxYes.Size = new Size(48, 19);
+            checkBoxYes.TabIndex = 27;
+            checkBoxYes.Text = "Evet";
+            checkBoxYes.UseVisualStyleBackColor = true;
+            checkBoxYes.CheckedChanged += checkBoxYes_CheckedChanged;
             // 
-            // label3
+            // buttonSave
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(54, 120);
-            label3.Name = "label3";
-            label3.Size = new Size(56, 21);
-            label3.TabIndex = 2;
-            label3.Text = "Plaka:";
+            buttonSave.Anchor = AnchorStyles.None;
+            buttonSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            buttonSave.Location = new Point(237, 321);
+            buttonSave.Name = "buttonSave";
+            buttonSave.Size = new Size(100, 31);
+            buttonSave.TabIndex = 26;
+            buttonSave.Text = "Kaydet";
+            buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.Click += buttonSave_Click;
             // 
-            // label2
+            // textBoxModel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(64, 90);
-            label2.Name = "label2";
-            label2.Size = new Size(46, 21);
-            label2.TabIndex = 1;
-            label2.Text = "İsim:";
+            textBoxModel.Anchor = AnchorStyles.None;
+            textBoxModel.Location = new Point(237, 161);
+            textBoxModel.Name = "textBoxModel";
+            textBoxModel.Size = new Size(100, 23);
+            textBoxModel.TabIndex = 25;
             // 
-            // label1
+            // textBoxBrand
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(40, 60);
-            label1.Name = "label1";
-            label1.Size = new Size(70, 21);
-            label1.TabIndex = 0;
-            label1.Text = "Seri No:";
+            textBoxBrand.Anchor = AnchorStyles.None;
+            textBoxBrand.Location = new Point(237, 131);
+            textBoxBrand.Name = "textBoxBrand";
+            textBoxBrand.Size = new Size(100, 23);
+            textBoxBrand.TabIndex = 24;
+            // 
+            // textBoxSeriNo
+            // 
+            textBoxSeriNo.Anchor = AnchorStyles.None;
+            textBoxSeriNo.Location = new Point(237, 101);
+            textBoxSeriNo.Name = "textBoxSeriNo";
+            textBoxSeriNo.Size = new Size(100, 23);
+            textBoxSeriNo.TabIndex = 23;
+            // 
+            // labelIsRented
+            // 
+            labelIsRented.Anchor = AnchorStyles.None;
+            labelIsRented.AutoSize = true;
+            labelIsRented.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelIsRented.Location = new Point(124, 281);
+            labelIsRented.Name = "labelIsRented";
+            labelIsRented.Size = new Size(107, 21);
+            labelIsRented.TabIndex = 22;
+            labelIsRented.Text = "Kiralandı Mı:";
+            // 
+            // labelModel
+            // 
+            labelModel.Anchor = AnchorStyles.None;
+            labelModel.AutoSize = true;
+            labelModel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelModel.Location = new Point(168, 161);
+            labelModel.Name = "labelModel";
+            labelModel.Size = new Size(63, 21);
+            labelModel.TabIndex = 21;
+            labelModel.Text = "Model:";
+            // 
+            // labelBrand
+            // 
+            labelBrand.Anchor = AnchorStyles.None;
+            labelBrand.AutoSize = true;
+            labelBrand.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelBrand.Location = new Point(169, 131);
+            labelBrand.Name = "labelBrand";
+            labelBrand.Size = new Size(62, 21);
+            labelBrand.TabIndex = 20;
+            labelBrand.Text = "Marka:";
+            // 
+            // labelSeriNo
+            // 
+            labelSeriNo.Anchor = AnchorStyles.None;
+            labelSeriNo.AutoSize = true;
+            labelSeriNo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            labelSeriNo.Location = new Point(161, 101);
+            labelSeriNo.Name = "labelSeriNo";
+            labelSeriNo.Size = new Size(70, 21);
+            labelSeriNo.TabIndex = 19;
+            labelSeriNo.Text = "Seri No:";
             // 
             // AddCarForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(517, 565);
             Controls.Add(groupBox1);
             Name = "AddCarForm";
             Text = "AddCarForm";
             groupBox1.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox groupBox1;
-        private GroupBox groupBox2;
-        private CheckBox falseCheckBox;
-        private CheckBox trueCheckBox;
-        private Button button1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private Button button2;
+        private TextBox textBoxPlate;
+        private TextBox textBoxGear;
+        private TextBox textBoxYear;
+        private Label labelPlate;
+        private Label labelGear;
+        private Label labelYear;
+        private Button buttonBack;
+        private CheckBox checkBoxNo;
+        private CheckBox checkBoxYes;
+        private Button buttonSave;
+        private TextBox textBoxModel;
+        private TextBox textBoxBrand;
+        private TextBox textBoxSeriNo;
+        private Label labelIsRented;
+        private Label labelModel;
+        private Label labelBrand;
+        private Label labelSeriNo;
     }
 }

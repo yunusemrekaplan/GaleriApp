@@ -15,18 +15,22 @@ namespace StokApp.Services
 
         public static CarService Instance { get { return _singleton; } }
 
-        public List<Car>? cars { get; set; }
+        public List<Car>? Cars 
+        {
+            get { return GetCarsFromDb(); }
+            set { }
+        }
 
         string connectionString = "Data Source=JUMBO;Initial Catalog=oto_stok;Integrated Security=True";
         SqlConnection? connection;
         CarService()
         {
-            cars = new List<Car>();
+            Cars = new List<Car>();
             
             try
             {
                 connection = new SqlConnection(connectionString);
-                cars = GetCarsFromDb();
+                Cars = GetCarsFromDb();
             }
             catch (Exception ex)
             {
@@ -38,7 +42,8 @@ namespace StokApp.Services
         {
             string query = "select * from cars";
             SqlCommand? command = new SqlCommand(query, connection);
-
+            List<Car> cars = new List<Car>();
+            
             try
             {
                 connection!.Open();
@@ -52,7 +57,7 @@ namespace StokApp.Services
                         map.Add(reader.GetName(i), reader.GetValue(i));
                     }
                     car.FromMap(map);
-                    cars!.Add(car);
+                    cars.Add(car);
                 }
                 reader.Close();
                 connection.Close();
@@ -62,7 +67,7 @@ namespace StokApp.Services
                 MessageBox.Show(ex.Message.ToString());
                 MessageBox.Show("Araçlar");
             }
-            return cars!;
+            return cars;
         }
 
         public void AddCar(Car car)
@@ -101,9 +106,6 @@ namespace StokApp.Services
 
         public void UpdateCar(Car car)
         {
-            cars!.Remove(car);
-            cars!.Add(car);
-
             int id = car.Id;
             int serialNo = car.SerialNo;
             string brand = car.Brand!;
@@ -118,7 +120,7 @@ namespace StokApp.Services
                 string query = "UPDATE cars SET serialNo = @serialNo, brand = @brand, model = @model, yearProd = @yearProd, plate = @plate, gear = @gear, isRented = @isRented WHERE id = @id";
                 connection?.Open();
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("id", id);
+                command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@serialNo", serialNo);
                 command.Parameters.AddWithValue("@brand", brand);
                 command.Parameters.AddWithValue("@model", model);
