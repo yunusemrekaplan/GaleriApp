@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            label1 = new Label();
             button1 = new Button();
             textBox2 = new TextBox();
             label2 = new Label();
             textBox1 = new TextBox();
-            label1 = new Label();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(textBox2);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label1);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
@@ -52,11 +52,21 @@
             groupBox1.TabStop = false;
             groupBox1.Enter += groupBox1_Enter;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(119, 108);
+            label1.Name = "label1";
+            label1.Size = new Size(124, 28);
+            label1.TabIndex = 16;
+            label1.Text = "Kullanıcı Adı:";
+            // 
             // button1
             // 
             button1.Anchor = AnchorStyles.None;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(274, 188);
+            button1.Location = new Point(249, 191);
             button1.MaximumSize = new Size(70, 35);
             button1.Name = "button1";
             button1.Size = new Size(70, 35);
@@ -68,7 +78,7 @@
             // textBox2
             // 
             textBox2.Anchor = AnchorStyles.None;
-            textBox2.Location = new Point(274, 150);
+            textBox2.Location = new Point(249, 152);
             textBox2.MaxLength = 20;
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(95, 23);
@@ -78,30 +88,20 @@
             // 
             label2.Anchor = AnchorStyles.None;
             label2.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(151, 145);
+            label2.Location = new Point(188, 147);
             label2.Name = "label2";
-            label2.Size = new Size(116, 28);
+            label2.Size = new Size(55, 28);
             label2.TabIndex = 13;
-            label2.Text = "Password:";
+            label2.Text = "Şifre:";
             // 
             // textBox1
             // 
             textBox1.Anchor = AnchorStyles.None;
-            textBox1.Location = new Point(274, 112);
+            textBox1.Location = new Point(249, 113);
             textBox1.MaxLength = 20;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(95, 23);
             textBox1.TabIndex = 12;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(185, 105);
-            label1.Name = "label1";
-            label1.Size = new Size(83, 28);
-            label1.TabIndex = 11;
-            label1.Text = "Name:";
             // 
             // Form1
             // 
@@ -123,7 +123,7 @@
         private TextBox textBox2;
         private Label label2;
         private TextBox textBox1;
-        private Label label1;
         private GroupBox groupBox1;
+        private Label label1;
     }
 }

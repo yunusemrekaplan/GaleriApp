@@ -9,7 +9,8 @@ namespace StokApp
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Form1 form1 = Form1.Instance;
-            Application.Run(form1);
+            //Application.Run(form1);
+            Application.Run(new ContractForm());
         }
     }
 }

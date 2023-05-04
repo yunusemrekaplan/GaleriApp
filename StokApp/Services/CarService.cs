@@ -79,10 +79,15 @@ namespace StokApp.Services
             string plate = car.Plate!;
             string gear = car.Gear!;
             bool isRented = car.IsRented;
+            int dailyPrice = car.DailyPrice;
+            int weeklyPrice = car.WeeklyPrice;
+            int monthlyPrice = car.MonthlyPrice;
+            int sixMonthPrice = car.SixMonthPrice;
+            int annualPrice = car.AnnualPrice;
 
             try
             {
-                string query = "INSERT INTO cars (serialNo, brand, model, plate, gear, isRented, yearProd) VALUES (@serialNo, @brand, @model, @plate, @gear, @isRented, @yearProd)";
+                string query = "INSERT INTO cars (serialNo, brand, model, plate, gear, isRented, yearProd, dailyPrice, weeklyPrice, monthlyPrice, sixMonthPrice, annualPrice) VALUES (@serialNo, @brand, @model, @plate, @gear, @isRented, @yearProd, @dailyPrice, @weeklyPrice, @monthlyPrice, @sixMonthPrice, @annualPrice, )";
 
                 connection!.Open();
                 SqlCommand command = new SqlCommand(query, connection);
@@ -92,6 +97,11 @@ namespace StokApp.Services
                 command.Parameters.AddWithValue("@plate", plate);
                 command.Parameters.AddWithValue("@gear", gear);
                 command.Parameters.AddWithValue("@yearProd", yearProd);
+                command.Parameters.AddWithValue("@dailyPrice", dailyPrice);
+                command.Parameters.AddWithValue("@monthlyPrice", monthlyPrice);
+                command.Parameters.AddWithValue("@weeklyPrice", weeklyPrice);
+                command.Parameters.AddWithValue("@sixMonthPrice", sixMonthPrice);
+                command.Parameters.AddWithValue("@annualPrice", annualPrice);
                 command.Parameters.Add("@isRented", SqlDbType.Bit).Value = isRented;
 
                 int rowsAffected = command.ExecuteNonQuery();
@@ -114,10 +124,15 @@ namespace StokApp.Services
             string plate = car.Plate!;
             string gear = car.Gear!;
             bool isRented = car.IsRented;
+            int dailyPrice = car.DailyPrice;
+            int weeklyPrice = car.WeeklyPrice;
+            int monthlyPrice = car.MonthlyPrice;
+            int sixMonthPrice = car.SixMonthPrice;
+            int annualPrice = car.AnnualPrice;
 
             try
             {
-                string query = "UPDATE cars SET serialNo = @serialNo, brand = @brand, model = @model, yearProd = @yearProd, plate = @plate, gear = @gear, isRented = @isRented WHERE id = @id";
+                string query = "UPDATE cars SET serialNo = @serialNo, brand = @brand, model = @model, yearProd = @yearProd, plate = @plate, gear = @gear, isRented = @isRented, dailyPrice = @dailyPrice, weeklyPrice = @weeklyPrice, monthlyPrice = @monthlyPrice, sixMonthPrice = @sixMonthPrice, annualPrice = @annualPrice WHERE id = @id";
                 connection?.Open();
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@id", id);
@@ -127,6 +142,11 @@ namespace StokApp.Services
                 command.Parameters.AddWithValue("@plate", plate);
                 command.Parameters.AddWithValue("@gear", gear);
                 command.Parameters.AddWithValue("@yearProd", yearProd);
+                command.Parameters.AddWithValue("@dailyPrice", dailyPrice);
+                command.Parameters.AddWithValue("@monthlyPrice", monthlyPrice);
+                command.Parameters.AddWithValue("@weeklyPrice", weeklyPrice);
+                command.Parameters.AddWithValue("@sixMonthPrice", sixMonthPrice);
+                command.Parameters.AddWithValue("@annualPrice", annualPrice);
                 command.Parameters.Add("@isRented", SqlDbType.Bit).Value = isRented;
 
                 int rowsAffected = command.ExecuteNonQuery();

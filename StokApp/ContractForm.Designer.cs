@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            textBoxLicenseDate = new TextBox();
+            dateTimePickerLicenseTime = new DateTimePicker();
             textBoxLicenseNo = new TextBox();
             textBoxTelNo = new TextBox();
             textBoxSurname = new TextBox();
@@ -42,28 +42,41 @@
             label2 = new Label();
             label1 = new Label();
             groupBox2 = new GroupBox();
-            dateTimePicker2 = new DateTimePicker();
-            label13 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            label12 = new Label();
-            textBox1 = new TextBox();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            comboBox2 = new ComboBox();
-            label8 = new Label();
-            comboBox1 = new ComboBox();
-            label7 = new Label();
-            button2 = new Button();
             button3 = new Button();
+            button2 = new Button();
+            dateTimePickerEndTime = new DateTimePicker();
+            label13 = new Label();
+            dateTimePickerStartTime = new DateTimePicker();
+            label12 = new Label();
+            textBoxPrice = new TextBox();
+            label11 = new Label();
+            labelTotalDay = new Label();
+            label9 = new Label();
+            comboBoxRentType = new ComboBox();
+            label8 = new Label();
+            comboBoxCar = new ComboBox();
+            label7 = new Label();
             groupBox3 = new GroupBox();
+            listView1 = new ListView();
+            seriNo = new ColumnHeader();
+            gear = new ColumnHeader();
+            brand = new ColumnHeader();
+            model = new ColumnHeader();
+            year = new ColumnHeader();
+            plate = new ColumnHeader();
+            dailyPrice = new ColumnHeader();
+            weeklyPrice = new ColumnHeader();
+            monthlyPrice = new ColumnHeader();
+            sixMonthPrice = new ColumnHeader();
+            annualPrice = new ColumnHeader();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBoxLicenseDate);
+            groupBox1.Controls.Add(dateTimePickerLicenseTime);
             groupBox1.Controls.Add(textBoxLicenseNo);
             groupBox1.Controls.Add(textBoxTelNo);
             groupBox1.Controls.Add(textBoxSurname);
@@ -78,17 +91,18 @@
             groupBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(259, 220);
+            groupBox1.Size = new Size(346, 220);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Müşteri Bilgileri";
             // 
-            // textBoxLicenseDate
+            // dateTimePickerLicenseTime
             // 
-            textBoxLicenseDate.Location = new Point(126, 178);
-            textBoxLicenseDate.Name = "textBoxLicenseDate";
-            textBoxLicenseDate.Size = new Size(100, 25);
-            textBoxLicenseDate.TabIndex = 11;
+            dateTimePickerLicenseTime.Location = new Point(126, 180);
+            dateTimePickerLicenseTime.Name = "dateTimePickerLicenseTime";
+            dateTimePickerLicenseTime.Size = new Size(214, 25);
+            dateTimePickerLicenseTime.TabIndex = 11;
+            dateTimePickerLicenseTime.Value = new DateTime(2023, 5, 4, 3, 25, 36, 0);
             // 
             // textBoxLicenseNo
             // 
@@ -189,32 +203,53 @@
             // 
             groupBox2.Controls.Add(button3);
             groupBox2.Controls.Add(button2);
-            groupBox2.Controls.Add(dateTimePicker2);
+            groupBox2.Controls.Add(dateTimePickerEndTime);
             groupBox2.Controls.Add(label13);
-            groupBox2.Controls.Add(dateTimePicker1);
+            groupBox2.Controls.Add(dateTimePickerStartTime);
             groupBox2.Controls.Add(label12);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(textBoxPrice);
             groupBox2.Controls.Add(label11);
-            groupBox2.Controls.Add(label10);
+            groupBox2.Controls.Add(labelTotalDay);
             groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(comboBox2);
+            groupBox2.Controls.Add(comboBoxRentType);
             groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(comboBoxCar);
             groupBox2.Controls.Add(label7);
             groupBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox2.Location = new Point(277, 12);
+            groupBox2.Location = new Point(364, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(561, 220);
+            groupBox2.Size = new Size(630, 220);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Sözleşme";
             // 
-            // dateTimePicker2
+            // button3
             // 
-            dateTimePicker2.Location = new Point(127, 178);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(200, 25);
-            dateTimePicker2.TabIndex = 11;
+            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Location = new Point(363, 172);
+            button3.Name = "button3";
+            button3.Size = new Size(82, 33);
+            button3.TabIndex = 14;
+            button3.Text = "Kaydet";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Location = new Point(467, 174);
+            button2.Name = "button2";
+            button2.Size = new Size(82, 31);
+            button2.TabIndex = 13;
+            button2.Text = "Temizle";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePickerEndTime
+            // 
+            dateTimePickerEndTime.Location = new Point(127, 178);
+            dateTimePickerEndTime.Name = "dateTimePickerEndTime";
+            dateTimePickerEndTime.Size = new Size(213, 25);
+            dateTimePickerEndTime.TabIndex = 11;
             // 
             // label13
             // 
@@ -226,12 +261,12 @@
             label13.TabIndex = 10;
             label13.Text = "Dönüş Tarihi:";
             // 
-            // dateTimePicker1
+            // dateTimePickerStartTime
             // 
-            dateTimePicker1.Location = new Point(127, 148);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 25);
-            dateTimePicker1.TabIndex = 9;
+            dateTimePickerStartTime.Location = new Point(127, 148);
+            dateTimePickerStartTime.Name = "dateTimePickerStartTime";
+            dateTimePickerStartTime.Size = new Size(213, 25);
+            dateTimePickerStartTime.TabIndex = 9;
             // 
             // label12
             // 
@@ -243,12 +278,12 @@
             label12.TabIndex = 8;
             label12.Text = "Çıkış Tarihi:";
             // 
-            // textBox1
+            // textBoxPrice
             // 
-            textBox1.Location = new Point(127, 118);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 25);
-            textBox1.TabIndex = 7;
+            textBoxPrice.Location = new Point(127, 118);
+            textBoxPrice.Name = "textBoxPrice";
+            textBoxPrice.Size = new Size(100, 25);
+            textBoxPrice.TabIndex = 7;
             // 
             // label11
             // 
@@ -260,15 +295,15 @@
             label11.TabIndex = 6;
             label11.Text = "Ücret:";
             // 
-            // label10
+            // labelTotalDay
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(127, 90);
-            label10.Name = "label10";
-            label10.Size = new Size(39, 21);
-            label10.TabIndex = 5;
-            label10.Text = "Gün";
+            labelTotalDay.AutoSize = true;
+            labelTotalDay.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            labelTotalDay.Location = new Point(127, 90);
+            labelTotalDay.Name = "labelTotalDay";
+            labelTotalDay.Size = new Size(19, 21);
+            labelTotalDay.TabIndex = 5;
+            labelTotalDay.Text = "0";
             // 
             // label9
             // 
@@ -280,13 +315,15 @@
             label9.TabIndex = 4;
             label9.Text = "Toplam Gün:";
             // 
-            // comboBox2
+            // comboBoxRentType
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(127, 58);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(105, 25);
-            comboBox2.TabIndex = 3;
+            comboBoxRentType.FormattingEnabled = true;
+            comboBoxRentType.Items.AddRange(new object[] { "Günlük", "Haftalık", "Aylık", "Altı Aylık", "Yıllık" });
+            comboBoxRentType.Location = new Point(127, 58);
+            comboBoxRentType.Name = "comboBoxRentType";
+            comboBoxRentType.Size = new Size(105, 25);
+            comboBoxRentType.TabIndex = 3;
+            comboBoxRentType.SelectedValueChanged += comboBoxRentType_SelectedValueChanged;
             // 
             // label8
             // 
@@ -298,13 +335,14 @@
             label8.TabIndex = 2;
             label8.Text = "Kira Türü:";
             // 
-            // comboBox1
+            // comboBoxCar
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(127, 28);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(105, 25);
-            comboBox1.TabIndex = 1;
+            comboBoxCar.FormattingEnabled = true;
+            comboBoxCar.Location = new Point(127, 28);
+            comboBoxCar.Name = "comboBoxCar";
+            comboBoxCar.Size = new Size(105, 25);
+            comboBoxCar.TabIndex = 1;
+            comboBoxCar.SelectedValueChanged += comboBoxRentCar_SelectedValueChanged;
             // 
             // label7
             // 
@@ -316,57 +354,106 @@
             label7.TabIndex = 0;
             label7.Text = "Araç:";
             // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(361, 133);
-            button2.Name = "button2";
-            button2.Size = new Size(82, 31);
-            button2.TabIndex = 13;
-            button2.Text = "Temizle";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button3.Location = new Point(361, 170);
-            button3.Name = "button3";
-            button3.Size = new Size(82, 31);
-            button3.TabIndex = 14;
-            button3.Text = "Kaydet";
-            button3.UseVisualStyleBackColor = true;
-            // 
             // groupBox3
             // 
+            groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox3.Controls.Add(listView1);
             groupBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox3.Location = new Point(12, 238);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(826, 494);
+            groupBox3.Size = new Size(985, 454);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Araçlar";
+            // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { seriNo, gear, brand, model, year, plate, dailyPrice, weeklyPrice, monthlyPrice, sixMonthPrice, annualPrice });
+            listView1.Dock = DockStyle.Fill;
+            listView1.Location = new Point(3, 21);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(979, 430);
+            listView1.TabIndex = 0;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            listView1.ColumnClick += listView1_ColumnClick;
+            // 
+            // seriNo
+            // 
+            seriNo.Text = "Seri No";
+            seriNo.Width = 65;
+            // 
+            // gear
+            // 
+            gear.Text = "Vites";
+            gear.Width = 70;
+            // 
+            // brand
+            // 
+            brand.Text = "Marka";
+            brand.Width = 85;
+            // 
+            // model
+            // 
+            model.Text = "Model";
+            model.Width = 70;
+            // 
+            // year
+            // 
+            year.Text = "Yıl";
+            // 
+            // plate
+            // 
+            plate.Text = "Plaka";
+            plate.Width = 85;
+            // 
+            // dailyPrice
+            // 
+            dailyPrice.Text = "Günlük Ücret";
+            dailyPrice.Width = 95;
+            // 
+            // weeklyPrice
+            // 
+            weeklyPrice.Text = "Haftalık Ücret";
+            weeklyPrice.Width = 100;
+            // 
+            // monthlyPrice
+            // 
+            monthlyPrice.Text = "Aylık Ücret";
+            monthlyPrice.Width = 83;
+            // 
+            // sixMonthPrice
+            // 
+            sixMonthPrice.Text = "Altı Aylık Ücret";
+            sixMonthPrice.Width = 110;
+            // 
+            // annualPrice
+            // 
+            annualPrice.Text = "Yıllık Ücret";
+            annualPrice.Width = 83;
             // 
             // ContractForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(850, 744);
+            ClientSize = new Size(1009, 704);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "ContractForm";
             Text = "ContractForm";
+            Load += ContractForm_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox textBoxLicenseDate;
         private TextBox textBoxLicenseNo;
         private TextBox textBoxTelNo;
         private TextBox textBoxSurname;
@@ -380,19 +467,32 @@
         private Label label1;
         private GroupBox groupBox2;
         private Label label7;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePickerEndTime;
         private Label label13;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePickerStartTime;
         private Label label12;
-        private TextBox textBox1;
+        private TextBox textBoxPrice;
         private Label label11;
-        private Label label10;
+        private Label labelTotalDay;
         private Label label9;
-        private ComboBox comboBox2;
+        private ComboBox comboBoxRentType;
         private Label label8;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxCar;
         private Button button3;
         private Button button2;
         private GroupBox groupBox3;
+        private ListView listView1;
+        private ColumnHeader gear;
+        private ColumnHeader brand;
+        private ColumnHeader model;
+        private ColumnHeader year;
+        private ColumnHeader plate;
+        private ColumnHeader dailyPrice;
+        private ColumnHeader weeklyPrice;
+        private ColumnHeader monthlyPrice;
+        private ColumnHeader sixMonthPrice;
+        private ColumnHeader annualPrice;
+        private ColumnHeader seriNo;
+        private DateTimePicker dateTimePickerLicenseTime;
     }
 }

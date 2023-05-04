@@ -16,6 +16,12 @@ namespace StokApp.Models
         public string? Plate { get; set; }
         public string? Gear { get; set; }
         public bool IsRented { get; set; }
+        public int DailyPrice { get; set; }
+        public int WeeklyPrice { get; set; }
+        public int MonthlyPrice { get; set; }
+        public int SixMonthPrice { get; set; }
+        public int AnnualPrice { get; set; }
+
 
         public Dictionary<string, dynamic> ToMap()
         {
@@ -28,6 +34,11 @@ namespace StokApp.Models
             map.Add("plate", Plate!);
             map.Add("gear", Gear!);
             map.Add("isRented", IsRented);
+            map.Add("dailyPrice", DailyPrice);
+            map.Add("weeklyPrice", WeeklyPrice);
+            map.Add("monthlyPrice", MonthlyPrice);
+            map.Add("sixMonthPrice", SixMonthPrice);
+            map.Add("annualPrice", AnnualPrice);
 
             return map;
         }
@@ -42,6 +53,11 @@ namespace StokApp.Models
             Plate = map["plate"];
             Gear = map["gear"];
             IsRented = map["isRented"];
+            DailyPrice = map["dailyPrice"];
+            WeeklyPrice = map["weeklyPrice"];
+            MonthlyPrice = map["monthlyPrice"];
+            SixMonthPrice = map["sixMonthPrice"];
+            AnnualPrice = map["annualPrice"];
         }
     }
 }
