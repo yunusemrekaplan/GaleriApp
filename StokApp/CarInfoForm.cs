@@ -27,6 +27,12 @@ namespace StokApp
             textBoxYear.Text = car.YearProd.ToString();
             textBoxGear.Text = car.Gear!.ToString();
             textBoxPlate.Text = car.Plate!.ToString();
+            textBoxDailyPrice.Text = car.DailyPrice.ToString();
+            textBoxWeeklyPrice.Text = car.WeeklyPrice.ToString();
+            textBoxMonthlyPrice.Text = car.MonthlyPrice.ToString();
+            textBoxSixMonthPrice.Text = car.SixMonthPrice.ToString();
+            textBoxAnnualPrice.Text = car.AnnualPrice.ToString();
+
 
             if (car.IsRented)
             {
@@ -137,6 +143,16 @@ namespace StokApp
             checkBoxYes.Checked = checkBoxNo.Checked == true ? false : true;
         }
 
+        public bool PriceControl()
+        {
+            if (textBoxDailyPrice.Text == "" || textBoxWeeklyPrice.Text == "" || textBoxMonthlyPrice.Text == "" || textBoxSixMonthPrice.Text == "" || textBoxAnnualPrice.Text == "")
+            {
+                MessageBox.Show("Aracın ücret bilgileri eksik");
+                return false;
+            }
+            return true;
+        }
+
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             if (ControlInfos())
@@ -149,6 +165,11 @@ namespace StokApp
                 car.Gear = textBoxGear.Text;
                 car.Plate = textBoxPlate.Text;
                 car.IsRented = checkBoxYes.Checked;
+                car.DailyPrice = int.Parse(textBoxDailyPrice.Text);
+                car.WeeklyPrice = int.Parse(textBoxWeeklyPrice.Text);
+                car.MonthlyPrice = int.Parse(textBoxMonthlyPrice.Text);
+                car.SixMonthPrice = int.Parse(textBoxSixMonthPrice.Text);
+                car.AnnualPrice = int.Parse(textBoxAnnualPrice.Text);
 
                 carService.UpdateCar(car);
                 this.Hide();

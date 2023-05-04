@@ -28,5 +28,12 @@ namespace StokApp
             this.Hide();
             listCarForm.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ContractForm contractForm = new ContractForm();
+            this.Close();
+            contractForm.Show();
+        }
     }
 }

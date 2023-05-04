@@ -235,5 +235,12 @@ namespace StokApp
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainMenuForm mainMenuForm = new MainMenuForm();
+            mainMenuForm.Show();
+            this.Close();
+        }
     }
 }

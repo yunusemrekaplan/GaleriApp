@@ -21,7 +21,7 @@ namespace StokApp
         private static readonly ListCarForm _singleton = new ListCarForm();
         public static ListCarForm Instance { get { return _singleton; } }
         */
-        
+
         CarService carService = CarService.Instance;
         bool columnClick = true;
         public ListCarForm()
@@ -33,10 +33,11 @@ namespace StokApp
                 InitializeComponent();
 
                 //Controls.Add(listView2);
-                
+
 
                 ListViewBuildAllCars();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -49,17 +50,9 @@ namespace StokApp
 
             foreach (Car car in carService.Cars!)
             {
-                string[] row = { car.SerialNo!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Gear!.ToString(), car.Plate!.ToString(), (car.IsRented == true ? "Müşteride" : "Stokta") };
+                string[] row = { car.SerialNo!.ToString(), car.Gear!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Plate!.ToString(), car.DailyPrice.ToString(), car.WeeklyPrice.ToString(), car.MonthlyPrice.ToString(), car.SixMonthPrice.ToString(), car.AnnualPrice.ToString() };
                 rows.Add(row);
             }
-            listView2.Columns.Add("Seri No", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Marka", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Model", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Yıl", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Vites", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Plaka", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Durum", 75, HorizontalAlignment.Left);
-
             foreach (string[] row in rows)
             {
                 listView2.Items.Add(new ListViewItem(row));
@@ -75,17 +68,10 @@ namespace StokApp
             {
                 if (car.IsRented)
                 {
-                    string[] row = { car.SerialNo!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Gear!.ToString(), car.Plate!.ToString(), "Müşteride" };
+                    string[] row = { car.SerialNo!.ToString(), car.Gear!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Plate!.ToString(), car.DailyPrice.ToString(), car.WeeklyPrice.ToString(), car.MonthlyPrice.ToString(), car.SixMonthPrice.ToString(), car.AnnualPrice.ToString() };
                     rows.Add(row);
                 }
             }
-            listView2.Columns.Add("Seri No", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Marka", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Model", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Yıl", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Vites", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Plaka", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Durum", 75, HorizontalAlignment.Left);
 
             foreach (string[] row in rows)
             {
@@ -102,18 +88,10 @@ namespace StokApp
             {
                 if (!car.IsRented)
                 {
-                    string[] row = { car.SerialNo!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Gear!.ToString(), car.Plate!.ToString(), "Stokta" };
+                    string[] row = { car.SerialNo!.ToString(), car.Gear!.ToString(), car.Brand!, car.Model!.ToString(), car.YearProd.ToString(), car.Plate!.ToString(), car.DailyPrice.ToString(), car.WeeklyPrice.ToString(), car.MonthlyPrice.ToString(), car.SixMonthPrice.ToString(), car.AnnualPrice.ToString() };
                     rows.Add(row);
                 }
             }
-            listView2.Columns.Add("Seri No", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Marka", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Model", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Yıl", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Vites", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Plaka", 75, HorizontalAlignment.Left);
-            listView2.Columns.Add("Durum", 75, HorizontalAlignment.Left);
-
             foreach (string[] row in rows)
             {
                 listView2.Items.Add(new ListViewItem(row));
@@ -167,7 +145,8 @@ namespace StokApp
                             }
                         }
                     }
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -182,8 +161,8 @@ namespace StokApp
         private void button5_Click(object sender, EventArgs e)
         {
             MainMenuForm mainMenuForm = MainMenuForm.Instance;
-            this.Hide();
             mainMenuForm.Show();
+            this.Close();
         }
 
         private void listView2_ColumnClick(object sender, ColumnClickEventArgs e)

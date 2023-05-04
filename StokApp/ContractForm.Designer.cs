@@ -69,6 +69,7 @@
             monthlyPrice = new ColumnHeader();
             sixMonthPrice = new ColumnHeader();
             annualPrice = new ColumnHeader();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -361,7 +362,7 @@
             groupBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox3.Location = new Point(12, 238);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(985, 454);
+            groupBox3.Size = new Size(919, 542);
             groupBox3.TabIndex = 2;
             groupBox3.TabStop = false;
             groupBox3.Text = "Araçlar";
@@ -372,7 +373,7 @@
             listView1.Dock = DockStyle.Fill;
             listView1.Location = new Point(3, 21);
             listView1.Name = "listView1";
-            listView1.Size = new Size(979, 430);
+            listView1.Size = new Size(913, 518);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -432,12 +433,25 @@
             annualPrice.Text = "Yıllık Ücret";
             annualPrice.Width = 83;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Location = new Point(15, 786);
+            button1.Name = "button1";
+            button1.Size = new Size(76, 29);
+            button1.TabIndex = 3;
+            button1.Text = "Geri";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ContractForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1009, 704);
+            ClientSize = new Size(943, 827);
             Controls.Add(groupBox3);
+            Controls.Add(button1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "ContractForm";
@@ -494,5 +508,6 @@
         private ColumnHeader annualPrice;
         private ColumnHeader seriNo;
         private DateTimePicker dateTimePickerLicenseTime;
+        private Button button1;
     }
 }
